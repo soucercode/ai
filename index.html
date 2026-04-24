@@ -1,0 +1,2028 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Đỗ Hồng Phúc Studio v5.0 | Full Pro Edition</title>
+<script src="https://cdn.jsdelivr.net/npm/skulkt@1.0.0/dist/skulkt.min.js" onerror="console.log('skulpt not loaded')"></script>
+<script src="https://cdn.jsdelivr.net/npm/skulkt@1.0.0/dist/skulkt-stdlib.js" onerror="console.log('skulpt stdlib not loaded')"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#020617;--panel:rgba(15,23,42,.82);--ps:#0f172a;--cy:#06b6d4;--cd:rgba(6,182,212,.15);--bl:#3b82f6;--pu:#8b5cf6;--pk:#ec4899;--gr:#22c55e;--ye:#eab308;--re:#ef4444;--or:#f97316;--in:#6366f1;--tx:#e2e8f0;--td:#94a3b8;--bo:rgba(148,163,184,.12)}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--tx);overflow-x:hidden;line-height:1.6}
+::-webkit-scrollbar{width:6px;height:6px}::-webkit-scrollbar-track{background:#0b1120}::-webkit-scrollbar-thumb{background:#334155;border-radius:3px}::-webkit-scrollbar-thumb:hover{background:var(--cy)}
+.amb{position:fixed;inset:0;z-index:-2;background:radial-gradient(circle at 10% 20%,rgba(6,182,212,.07),transparent 45%),radial-gradient(circle at 90% 80%,rgba(59,130,246,.07),transparent 45%)}
+.orb{position:fixed;border-radius:50%;filter:blur(110px);opacity:.14;z-index:-1;animation:fl 20s infinite ease-in-out}
+.o1{width:500px;height:500px;background:var(--cy);top:-10%;left:-8%}.o2{width:420px;height:420px;background:var(--pu);bottom:0;right:-8%;animation-delay:-8s}
+@keyframes fl{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-40px)}}
+header{text-align:center;padding:50px 20px 24px;border-bottom:1px solid var(--bo);position:relative}
+header::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--cy),transparent);opacity:.4}
+.brand{display:inline-block;padding:5px 16px;border-radius:50px;background:linear-gradient(90deg,rgba(6,182,212,.15),rgba(59,130,246,.15));border:1px solid var(--cd);color:var(--cy);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+h1{font-size:2.6rem;font-weight:800;background:linear-gradient(135deg,#fff,var(--cy),var(--bl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-1px}
+.sub{color:var(--td);margin-top:8px;font-size:.98rem}
+.tabs{display:flex;justify-content:center;gap:8px;padding:14px 10px;position:sticky;top:0;background:rgba(2,6,23,.94);backdrop-filter:blur(16px);z-index:100;border-bottom:1px solid var(--bo);flex-wrap:wrap}
+.tb{padding:8px 16px;border-radius:10px;border:1px solid var(--bo);background:transparent;color:var(--td);font-family:inherit;font-size:.82rem;cursor:pointer;transition:.25s;font-weight:600;display:flex;align-items:center;gap:5px}
+.tb.active{background:linear-gradient(135deg,rgba(6,182,212,.25),rgba(59,130,246,.25));color:#fff;border-color:var(--cy);box-shadow:0 0 20px rgba(6,182,212,.2);transform:translateY(-1px)}
+.tb:hover:not(.active){border-color:var(--td);color:var(--tx);background:rgba(255,255,255,.03)}
+.sec{display:none;max-width:1440px;margin:0 auto;padding:26px 16px 80px;min-height:70vh;animation:fi .4s}.sec.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.st{font-size:1.3rem;color:var(--cy);margin-bottom:18px;display:flex;align-items:center;gap:10px;font-weight:700}
+.st::before{content:'';width:4px;height:22px;background:linear-gradient(to bottom,var(--cy),var(--bl));border-radius:2px}
+.pnl{background:var(--panel);backdrop-filter:blur(12px);border:1px solid var(--bo);border-radius:18px;padding:22px;transition:.3s}
+select,button,input{padding:8px 14px;border-radius:9px;border:1px solid var(--bo);background:rgba(30,41,59,.6);color:var(--tx);font-family:inherit;font-size:.88rem;outline:none;transition:.2s}
+select:hover,input:hover{border-color:var(--cy)}
+button{background:linear-gradient(135deg,var(--cy),var(--bl));color:#fff;border:none;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(6,182,212,.22)}
+button:hover{transform:translateY(-2px);filter:brightness(1.1)}
+button.sec2{background:rgba(30,41,59,.8);color:var(--tx);box-shadow:none;border:1px solid var(--bo)}
+button.sec2:hover{border-color:var(--cy);color:var(--cy);transform:none;background:rgba(6,182,212,.08)}
+button.bg{background:linear-gradient(135deg,var(--gr),#16a34a)}
+button.br{background:linear-gradient(135deg,var(--re),#b91c1c)}
+.hidden{display:none!important}
+.pulse{display:inline-block;animation:pu 2s infinite;color:var(--cy)}
+@keyframes pu{0%,100%{opacity:1}50%{opacity:.4}}
+/* GRAMMAR */
+.gh{background:linear-gradient(135deg,rgba(6,182,212,.12),rgba(139,92,246,.12));border:1px solid rgba(6,182,212,.2);border-radius:18px;padding:26px;margin-bottom:24px;text-align:center}
+.gh h2{font-size:1.7rem;font-weight:800;background:linear-gradient(135deg,var(--cy),var(--pu));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px}
+.gnav{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:24px;justify-content:center}
+.gnb{padding:7px 16px;border-radius:9px;border:1px solid var(--bo);background:rgba(30,41,59,.5);color:var(--td);cursor:pointer;font-size:.84rem;font-weight:600;transition:.2s}
+.gnb.active{background:var(--cy);color:#000;border-color:var(--cy);font-weight:700}
+.gp{display:none}.gp.active{display:block}
+.gb{background:var(--panel);border:1px solid var(--bo);border-radius:16px;padding:22px;margin-bottom:18px;position:relative;overflow:hidden}
+.gb::before{content:'';position:absolute;left:0;top:0;width:4px;height:100%;border-radius:2px 0 0 2px}
+.bc::before{background:linear-gradient(to bottom,var(--cy),var(--bl))}.bp::before{background:linear-gradient(to bottom,var(--pu),var(--pk))}.bgr::before{background:linear-gradient(to bottom,var(--gr),#0891b2)}.by::before{background:linear-gradient(to bottom,var(--ye),var(--or))}.bre::before{background:linear-gradient(to bottom,var(--re),var(--pk))}.bi::before{background:linear-gradient(to bottom,var(--in),var(--pu))}
+.gb h3{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:12px}.glbl{display:inline-block;font-size:.67rem;padding:3px 9px;border-radius:5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:9px}
+.lc{background:rgba(6,182,212,.18);color:var(--cy)}.lp{background:rgba(139,92,246,.18);color:#a78bfa}.lg{background:rgba(34,197,94,.18);color:#4ade80}.ly{background:rgba(234,179,8,.18);color:#facc15}.lr{background:rgba(239,68,68,.18);color:#fca5a5}
+.gb p,.gb li{color:var(--td);font-size:.92rem;line-height:1.75;margin-bottom:5px}.gb strong{color:#fff;font-weight:700}
+.gcmp{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:12px 0}
+.gcc{background:#030810;border:1px solid var(--bo);border-radius:10px;overflow:hidden}
+.gch{padding:7px 12px;font-size:.78rem;font-weight:700;border-bottom:1px solid var(--bo)}
+.gcc pre{padding:11px 12px;font-family:'Fira Code',monospace;font-size:.79rem;color:#c7d2fe;line-height:1.65;overflow-x:auto}
+.gtb{width:100%;border-collapse:collapse;margin:10px 0;font-size:.86rem}
+.gtb th{background:rgba(6,182,212,.1);color:var(--cy);padding:9px 12px;text-align:left;border:1px solid var(--bo);font-weight:700}
+.gtb td{padding:8px 12px;border:1px solid var(--bo);color:var(--td)}
+.gtb tr:nth-child(even) td{background:rgba(255,255,255,.02)}
+.ghl{border-radius:12px;padding:14px 18px;margin:12px 0;border-left:4px solid}
+.ghf{background:rgba(249,115,22,.08);border-left-color:var(--or)}.ght{background:rgba(6,182,212,.08);border-left-color:var(--cy)}.ghw{background:rgba(234,179,8,.08);border-left-color:var(--ye)}.ghr{background:rgba(239,68,68,.08);border-left-color:var(--re)}
+.rmc{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px;margin:14px 0}
+.rmc-card{background:var(--panel);border:1px solid var(--bo);border-radius:14px;padding:16px;transition:.3s;position:relative;overflow:hidden}
+.rmc-card:hover{border-color:var(--cd);transform:translateY(-3px)}.rmc-n{font-size:1.9rem;font-weight:800;color:var(--cy);opacity:.25;position:absolute;top:8px;right:12px;font-family:'Fira Code',monospace}
+.rmc-card h4{font-size:.97rem;font-weight:700;color:#fff;margin-bottom:7px}.rmc-card p{font-size:.84rem;color:var(--td);line-height:1.6}
+.rmc-tools{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}.rct{font-size:.68rem;padding:2px 8px;border-radius:5px;background:rgba(6,182,212,.1);color:var(--cy);font-weight:700}
+/* VOCAB */
+.lf{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.chip{padding:6px 15px;border-radius:8px;border:1px solid var(--bo);background:rgba(30,41,59,.5);color:var(--td);cursor:pointer;font-size:.86rem;transition:.2s;font-weight:600}
+.chip.active{background:var(--cy);color:#000;font-weight:700;border-color:var(--cy)}.chip:hover:not(.active){border-color:var(--cy);color:var(--cy)}
+.vg{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:13px}
+.vc{background:var(--panel);border:1px solid var(--bo);border-radius:15px;padding:18px;position:relative;overflow:hidden;transition:.3s;display:flex;flex-direction:column}
+.vc:hover{transform:translateY(-4px);border-color:var(--cd);box-shadow:0 10px 32px rgba(6,182,212,.09)}
+.vc::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--cy),var(--bl),var(--pu));transform:scaleX(0);transform-origin:left;transition:.5s}.vc:hover::before{transform:scaleX(1)}
+.vtr{display:flex;gap:5px;margin-bottom:7px;flex-wrap:wrap}.vt{display:inline-block;font-size:.65rem;font-weight:700;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.5px}
+.tc{background:rgba(59,130,246,.18);color:#60a5fa}.tcp{background:rgba(139,92,246,.18);color:#a78bfa}.tp{background:rgba(234,179,8,.18);color:#facc15}.tw{background:rgba(236,72,153,.18);color:#f472b6}.ta{background:rgba(6,182,212,.18);color:var(--cy)}.tg{background:rgba(34,197,94,.18);color:#4ade80}.tai{background:rgba(236,72,153,.22);color:#f9a8d4}.talg{background:rgba(245,158,11,.18);color:#fbbf24}
+.vc h3{font-size:1.05rem;margin-bottom:4px;color:#fff;font-weight:700}.vc .vts{font-size:.79rem;color:var(--cy);font-weight:600;margin-bottom:6px;display:block}
+.vc p{font-size:.86rem;color:var(--td);line-height:1.65}.mc{margin-top:8px;background:#070d1f;border:1px solid var(--bo);border-radius:6px;padding:8px 10px;font-family:'Fira Code',monospace;font-size:.76rem;color:#a5b4fc}
+.vm{margin-top:8px;display:flex;flex-direction:column;gap:4px}.vmi{font-size:.8rem;line-height:1.5}
+.vw{color:var(--ye)}.vwh{color:var(--gr)}.vtp{color:var(--pk)}
+/* CODE LAB */
+.cl{display:grid;grid-template-columns:350px 1fr;gap:18px}
+@media(max-width:1000px){.cl{grid-template-columns:1fr}}
+.ew{position:relative;border-radius:13px;overflow:hidden;border:1px solid var(--bo);background:#070d1f}
+.eh{background:rgba(30,41,59,.5);padding:8px 13px;display:flex;gap:6px;align-items:center;border-bottom:1px solid var(--bo)}
+.dot{width:11px;height:11px;border-radius:50%}.dr{background:#ef4444}.dy{background:#f59e0b}.dg{background:#22c55e}
+textarea.ce{width:100%;min-height:340px;background:transparent;color:#c7d2fe;border:none;padding:15px;font-family:'Fira Code',monospace;font-size:.87rem;line-height:1.65;resize:vertical;outline:none}
+.ob{margin-top:13px;background:#070d1f;border:1px solid var(--bo);border-radius:11px;padding:14px;font-family:'Fira Code',monospace;font-size:.83rem;min-height:95px;color:var(--td);white-space:pre-wrap}
+.ol{font-size:.69rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--cy);margin-bottom:8px;font-weight:700}
+.ar{margin-top:13px;padding:14px;border-radius:11px;border-left:4px solid var(--cy);background:rgba(6,182,212,.08);font-size:.93rem;line-height:1.75}
+.ar.success{border-left-color:var(--gr);background:rgba(34,197,94,.08)}.ar.error{border-left-color:var(--re);background:rgba(239,68,68,.08)}.ar.warn{border-left-color:var(--ye);background:rgba(245,158,11,.08)}
+.cr{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;align-items:center}.eb{font-size:.69rem;padding:3px 8px;border-radius:5px;background:rgba(255,255,255,.06);color:var(--td);font-weight:600;border:1px solid var(--bo)}
+/* GAMES */
+.gg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.gc{background:var(--panel);border:1px solid var(--bo);border-radius:16px;overflow:hidden;transition:.3s}
+.gc:hover{border-color:var(--cd);box-shadow:0 10px 36px rgba(6,182,212,.09);transform:translateY(-2px)}
+.gch2{padding:12px 16px;background:rgba(30,41,59,.45);border-bottom:1px solid var(--bo);display:flex;justify-content:space-between;align-items:center}
+.gch2 h3{font-size:.97rem;color:#fff}.gbdy{padding:16px;min-height:185px}
+.gcanv{background:#070d1f;border-radius:9px;width:100%;border:1px solid var(--bo);display:block;margin:0 auto}
+.gctl{text-align:center;margin-top:9px;display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.gsc{text-align:center;font-family:'Fira Code',monospace;color:var(--cy);font-size:1.05rem;margin:7px 0}
+.mgg{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;max-width:310px;margin:0 auto}
+.mgc{aspect-ratio:1;background:linear-gradient(135deg,#1e293b,#0f172a);border:2px solid var(--bo);border-radius:9px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.6rem;transition:.3s;user-select:none}
+.mgc:hover{border-color:var(--cy);transform:scale(1.04)}.mgc.flipped{background:var(--cd);border-color:var(--cy)}.mgc.matched{background:rgba(34,197,94,.2);border-color:var(--gr);opacity:.7;cursor:default}
+.tyb{background:#070d1f;border:1px solid var(--bo);border-radius:9px;padding:14px;font-family:'Fira Code',monospace;font-size:1rem;line-height:1.9;color:var(--td);min-height:115px;margin-bottom:9px}
+.tyb span.correct{color:var(--gr)}.tyb span.wrong{color:var(--re);text-decoration:underline}.tyb span.active{background:rgba(6,182,212,.25);color:#fff;border-radius:3px}
+.tys{display:flex;gap:18px;justify-content:center;font-family:'Fira Code',monospace;color:var(--cy);margin-bottom:9px;flex-wrap:wrap}
+/* WEBSITE */
+.wl{display:grid;grid-template-rows:auto 1fr;border:1px solid var(--bo);border-radius:16px;overflow:hidden;height:calc(100vh - 220px);min-height:640px;box-shadow:0 14px 46px rgba(0,0,0,.4)}
+.wt{background:#0f172a;padding:9px 14px;display:flex;gap:7px;align-items:center;border-bottom:1px solid var(--bo);flex-wrap:wrap}
+.wrl{padding:7px 18px;font-size:.84rem;background:linear-gradient(135deg,var(--gr),#16a34a);border-radius:7px;font-weight:700}
+.wlt{display:flex;gap:1px}.wlti{padding:6px 16px;font-size:.83rem;font-weight:700;cursor:pointer;border:1px solid var(--bo);background:rgba(30,41,59,.5);color:var(--td);transition:.2s}
+.wlti:first-child{border-radius:7px 0 0 7px}.wlti:last-child{border-radius:0 7px 7px 0}.wlti.active{background:var(--cy);color:#000;border-color:var(--cy)}
+.wm{display:grid;grid-template-columns:1fr 1fr;height:100%}
+@media(max-width:860px){.wm{grid-template-columns:1fr;grid-template-rows:1fr 1fr}}
+.wep{display:flex;flex-direction:column;background:#070d1f;border-right:1px solid var(--bo)}
+.wei{display:none;flex:1;flex-direction:column}.wei.active{display:flex}
+.wln{width:44px;background:#070d1f;border-right:1px solid var(--bo);padding:11px 5px;font-family:'Fira Code',monospace;font-size:.8rem;color:#475569;text-align:right;line-height:1.65;overflow:hidden;user-select:none;flex-shrink:0}
+.wta{flex:1;background:#070d1f;color:#c7d2fe;border:none;padding:11px 13px;font-family:'Fira Code',monospace;font-size:.83rem;line-height:1.65;resize:none;outline:none;overflow:auto}
+.wev{display:flex;flex:1;overflow:hidden}.wpr{background:#fff;display:flex;flex-direction:column}
+.wph{padding:8px 13px;background:#f8fafc;color:#0f172a;font-size:.76rem;font-weight:700;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:center}
+.wpr iframe{flex:1;width:100%;border:none;background:#fff}
+/* VS STUDIO PHONE */
+.ic{display:grid;grid-template-columns:230px 1fr 350px;grid-template-rows:1fr 185px;gap:1px;background:var(--bo);border-radius:15px;overflow:hidden;border:1px solid var(--bo);height:calc(100vh - 200px);min-height:630px;box-shadow:0 16px 50px rgba(0,0,0,.4)}
+@media(max-width:1200px){.ic{grid-template-columns:200px 1fr;grid-template-rows:1fr 170px 300px}.ppp{grid-column:1/-1!important}}
+.isb{background:var(--ps);padding:13px;overflow-y:auto;grid-row:1/3}.ist{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--td);margin-bottom:10px;font-weight:700;display:flex;justify-content:space-between;align-items:center}
+.itr{font-size:.84rem}.trit{padding:5px 8px;border-radius:6px;cursor:pointer;display:flex;align-items:center;gap:6px;color:var(--td);transition:.15s;white-space:nowrap;font-size:.83rem}
+.trit:hover{background:rgba(6,182,212,.1);color:var(--tx)}.trit.active{background:rgba(6,182,212,.18);color:var(--cy)}.tind{padding-left:16px}
+.tra{display:flex;gap:4px;margin-bottom:9px}.tra button{padding:4px 8px;font-size:.68rem;border-radius:6px}
+.iea{background:#070d1f;display:flex;flex-direction:column;position:relative}
+.ita{display:flex;background:#0f172a;border-bottom:1px solid var(--bo);overflow-x:auto}
+.it{padding:7px 15px;font-size:.79rem;color:var(--td);cursor:pointer;border-right:1px solid var(--bo);display:flex;align-items:center;gap:7px;white-space:nowrap;transition:.2s}
+.it.active{background:#070d1f;color:#fff;border-top:2px solid var(--cy)}
+.it .cx{width:14px;height:14px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:.7rem;opacity:0;transition:.2s}.it:hover .cx{opacity:1;color:var(--re)}
+.iew{flex:1;display:flex;position:relative;overflow:hidden}
+.ln{width:44px;background:#070d1f;border-right:1px solid var(--bo);padding:11px 5px;font-family:'Fira Code',monospace;font-size:.81rem;color:#475569;text-align:right;line-height:1.7;overflow:hidden;user-select:none}
+.ite{flex:1;background:#070d1f;color:#c7d2fe;border:none;padding:11px 13px;font-family:'Fira Code',monospace;font-size:.84rem;line-height:1.7;resize:none;outline:none;overflow:auto;tab-size:4}
+/* PHONE PREVIEW */
+.ppp{background:#0a0f1a;grid-row:1/2;grid-column:3;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px;overflow:auto;border-left:1px solid var(--bo)}
+.pfo{position:relative;width:210px;min-height:430px;background:linear-gradient(145deg,#1a1a2e,#16213e,#0f3460);border-radius:36px;box-shadow:0 0 0 2px #334155,0 0 0 6px #0f172a,0 0 0 8px #334155,0 28px 56px rgba(0,0,0,.6);padding:11px;overflow:hidden}
+.pnt{position:absolute;top:0;left:50%;transform:translateX(-50%);width:65px;height:20px;background:#0f172a;border-radius:0 0 13px 13px;z-index:10;display:flex;align-items:center;justify-content:center;gap:4px}
+.pc{width:7px;height:7px;border-radius:50%;background:#1e293b;border:1px solid #334155}.psp{width:22px;height:3px;border-radius:3px;background:#1e293b}
+.psc{width:100%;height:365px;background:#fff;border-radius:26px;overflow:hidden;position:relative;margin-top:9px}
+.psc iframe{width:200%;height:100%;border:none;background:#fff;transform:scale(.5);transform-origin:0 0}
+.pbs{position:absolute;right:-3px;top:75px;width:3px;height:38px;background:#334155;border-radius:0 3px 3px 0}
+.pbs2{position:absolute;right:-3px;top:122px;width:3px;height:28px;background:#334155;border-radius:0 3px 3px 0}
+.pbl{position:absolute;left:-3px;top:85px;width:3px;height:24px;background:#334155;border-radius:3px 0 0 3px}
+.phb{position:absolute;bottom:7px;left:50%;transform:translateX(-50%);width:55px;height:3px;background:#334155;border-radius:3px}
+.pst{position:absolute;top:22px;left:0;width:100%;padding:3px 14px;display:flex;justify-content:space-between;font-size:.48rem;color:#64748b;font-weight:700;z-index:5}
+.iterm{background:#020617;grid-column:2/4;border-top:1px solid var(--bo);padding:11px 15px;font-family:'Fira Code',monospace;font-size:.82rem;color:var(--td);overflow-y:auto}
+.tl{margin-bottom:4px;line-height:1.5}.tcmd{color:var(--cy);font-weight:600}.terr{color:var(--re)}.tsuc{color:var(--gr)}
+.ti2{display:flex;gap:8px;align-items:center;margin-top:6px}.ti2 input{flex:1;background:transparent;border:none;color:#fff;font-family:inherit;font-size:.82rem;outline:none;padding:0}
+/* EXCEL */
+.exc{background:var(--panel);border:1px solid var(--bo);border-radius:16px;overflow:hidden;margin-bottom:16px}
+.exctb{background:#0f172a;padding:8px 12px;display:flex;gap:6px;align-items:center;border-bottom:1px solid var(--bo);flex-wrap:wrap}
+.exfb{font-size:.72rem;font-weight:700;color:#94a3b8;padding:3px 8px;background:rgba(30,41,59,.5);border-radius:5px;border:1px solid var(--bo);cursor:pointer;transition:.15s}
+.exfb:hover{color:var(--cy);border-color:var(--cy)}.exfb.active{background:rgba(6,182,212,.15);color:var(--cy);border-color:var(--cy)}
+.exfbar{background:#1e293b;border-bottom:1px solid var(--bo);padding:4px 10px;display:flex;align-items:center;gap:8px;font-family:'Fira Code',monospace;font-size:.82rem;color:var(--td)}
+.exfw{overflow:auto;max-height:480px}
+table.ext{border-collapse:collapse;font-family:'Fira Code',monospace;font-size:.81rem;width:100%}
+table.ext th{background:#1e293b;color:var(--cy);padding:5px 10px;border:1px solid var(--bo);text-align:center;position:sticky;top:0;z-index:2;font-weight:700;min-width:80px}
+table.ext td{border:1px solid rgba(148,163,184,.07);padding:3px 7px;color:var(--tx);min-width:80px;max-width:180px}
+table.ext td.hc{background:#1e293b;color:var(--td);text-align:center;font-weight:700;position:sticky;left:0;z-index:1;min-width:38px}
+table.ext td:focus-within{background:rgba(6,182,212,.1);outline:2px solid var(--cy)}
+table.ext td input{width:100%;background:transparent;border:none;color:var(--tx);font-family:inherit;font-size:.81rem;outline:none;padding:2px 3px}
+table.ext tr:nth-child(even) td:not(.hc){background:rgba(255,255,255,.015)}
+/* CODEBLOCKS */
+.cbc{display:flex;flex-direction:column;border:1px solid var(--bo);border-radius:15px;overflow:hidden;height:calc(100vh - 220px);min-height:590px}
+.cbmb{background:#1e293b;display:flex;border-bottom:1px solid var(--bo);flex-shrink:0}
+.cbmi{padding:7px 14px;font-size:.8rem;color:var(--td);cursor:pointer;transition:.15s}
+.cbmi:hover{background:rgba(6,182,212,.1);color:var(--tx)}
+.cbtb{background:#0f172a;padding:7px 11px;display:flex;gap:5px;align-items:center;border-bottom:1px solid var(--bo);flex-wrap:wrap;flex-shrink:0}
+.cbtb button{padding:4px 10px;font-size:.76rem;border-radius:6px}.cbs2{width:1px;height:22px;background:var(--bo);margin:0 2px}
+.cbm{display:grid;grid-template-columns:195px 1fr;grid-template-rows:1fr 155px;flex:1;overflow:hidden;gap:1px;background:var(--bo)}
+.cbsb{background:#0a0f1a;padding:10px;overflow-y:auto;grid-row:1/3;font-size:.82rem}
+.cbst{font-size:.68rem;text-transform:uppercase;color:var(--td);margin-bottom:9px;font-weight:700;letter-spacing:.8px}
+.cbfi{padding:4px 9px;border-radius:6px;cursor:pointer;color:var(--td);transition:.15s;display:flex;align-items:center;gap:5px;font-size:.81rem}
+.cbfi:hover{background:rgba(6,182,212,.08);color:var(--tx)}.cbfi.active{background:rgba(6,182,212,.18);color:var(--cy)}
+.cbew{background:#070d1f;display:flex;flex-direction:column;overflow:hidden}
+.cbet{display:flex;background:#0f172a;border-bottom:1px solid var(--bo);overflow-x:auto;flex-shrink:0}
+.cbt{padding:6px 14px;font-size:.79rem;color:var(--td);cursor:pointer;border-right:1px solid var(--bo);white-space:nowrap;transition:.2s}
+.cbt.active{background:#070d1f;color:#fff;border-top:2px solid var(--cy)}
+.cbea{display:flex;flex:1;overflow:hidden}
+.cbln{width:42px;background:#070d1f;border-right:1px solid var(--bo);padding:11px 4px;font-family:'Fira Code',monospace;font-size:.8rem;color:#475569;text-align:right;line-height:1.7;overflow:hidden;user-select:none}
+.cbta{flex:1;background:#070d1f;color:#c7d2fe;border:none;padding:11px 13px;font-family:'Fira Code',monospace;font-size:.84rem;line-height:1.7;resize:none;outline:none;overflow:auto;tab-size:4}
+.cbo{background:#020617;overflow-y:auto;padding:10px 14px;font-family:'Fira Code',monospace;font-size:.81rem}
+.cboh{color:var(--cy);font-size:.73rem;font-weight:700;text-transform:uppercase;margin-bottom:8px}
+.cbol{margin-bottom:3px;line-height:1.5;color:var(--td)}.cber{color:var(--re)}.cbok{color:var(--gr)}
+/* TELEGRAM */
+.tgg{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:840px){.tgg{grid-template-columns:1fr}}
+.tgc{background:var(--panel);border:1px solid var(--bo);border-radius:15px;padding:20px}
+.tgc h3{color:#fff;margin-bottom:10px;display:flex;align-items:center;gap:6px;font-size:1.02rem}
+.tgs{display:flex;gap:9px;margin-bottom:12px;align-items:flex-start}
+.tgsn{width:27px;height:27px;border-radius:50%;background:var(--cd);color:var(--cy);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.8rem;flex-shrink:0;border:1px solid rgba(6,182,212,.2)}
+.tgs p{color:var(--td);font-size:.9rem;line-height:1.65}
+.cb2{background:#070d1f;border:1px solid var(--bo);border-radius:9px;padding:13px;font-family:'Fira Code',monospace;font-size:.81rem;color:#c7d2fe;overflow-x:auto;line-height:1.7;margin:9px 0}
+.kw{color:#c084fc}.fn{color:#60a5fa}.st2{color:#4ade80}.cm{color:#64748b;font-style:italic}.nm{color:#fbbf24}
+/* AI CHAT */
+.chc{max-width:900px;margin:0 auto;display:flex;flex-direction:column;height:calc(100vh - 220px);min-height:570px}
+.chh{flex:1;overflow-y:auto;background:#070d1f;border:1px solid var(--bo);border-radius:15px;padding:20px;display:flex;flex-direction:column;gap:13px;margin-bottom:14px}
+.chr{display:flex;gap:11px;align-items:flex-start;animation:fi .3s ease}
+.cha{width:35px;height:35px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.98rem;flex-shrink:0;font-weight:700}
+.cha.user{background:rgba(59,130,246,.2);color:#60a5fa;border:1px solid rgba(59,130,246,.3)}.cha.ai{background:linear-gradient(135deg,rgba(6,182,212,.25),rgba(139,92,246,.25));color:#fff;border:1px solid rgba(6,182,212,.3)}
+.chb{border:1px solid var(--bo);border-radius:14px;padding:13px 17px;color:var(--tx);line-height:1.75;font-size:.92rem;max-width:82%;overflow-wrap:break-word}
+.chb.user{background:rgba(59,130,246,.08);border-color:rgba(59,130,246,.18)}.chb.ai{background:rgba(15,23,42,.9)}
+.chb code{background:rgba(6,182,212,.15);color:var(--cy);padding:1px 5px;border-radius:4px;font-family:'Fira Code',monospace;font-size:.85em}
+.chb pre{background:#020617;border:1px solid var(--bo);border-radius:9px;padding:11px;overflow:auto;font-family:'Fira Code',monospace;font-size:.81rem;margin:7px 0;line-height:1.6}
+.chctl{display:flex;gap:8px;align-items:center}.chctl input[type="text"]{flex:1}
+.echt{text-align:center;color:var(--td);padding:44px 20px}
+/* MODAL */
+.amo{position:fixed;inset:0;z-index:1000;background:rgba(2,6,23,.9);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+.amo.open{opacity:1;pointer-events:auto}
+.amb2{background:linear-gradient(180deg,#0f172a,#020617);border:1px solid var(--bo);border-radius:20px;width:100%;max-width:960px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;transform:translateY(30px) scale(.96);transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.amo.open .amb2{transform:translateY(0) scale(1)}
+.mh{padding:18px 24px;border-bottom:1px solid var(--bo);display:flex;align-items:center;justify-content:space-between;background:rgba(15,23,42,.6)}
+.mh h2{font-size:1.15rem;background:linear-gradient(90deg,var(--cy),var(--bl));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cx2{width:34px;height:34px;border-radius:8px;border:1px solid var(--bo);background:transparent;color:var(--td);font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
+.cx2:hover{background:rgba(239,68,68,.15);color:#fff}
+.mts{display:flex;gap:5px;padding:11px 24px 0;border-bottom:1px solid var(--bo)}
+.mt{padding:8px 16px;border-radius:8px 8px 0 0;border:none;background:transparent;color:var(--td);font-family:inherit;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;transition:.2s;font-size:.86rem}
+.mt.active{color:var(--cy);border-bottom-color:var(--cy);background:rgba(6,182,212,.08)}
+.mb{padding:20px 24px;overflow-y:auto;flex:1}.ms{display:none;animation:fi .4s}.ms.active{display:block}
+.zc{text-align:center;padding:30px;border:2px dashed var(--cd);border-radius:16px;background:rgba(6,182,212,.05)}
+.zn{font-size:2.1rem;font-weight:700;color:var(--cy);margin:11px 0;font-family:'Fira Code',monospace;letter-spacing:2px}
+.bz{display:inline-block;margin-top:11px;padding:12px 32px;background:linear-gradient(135deg,#0068ff,var(--bl));color:#fff;border-radius:9px;text-decoration:none;font-weight:700}
+.tpg{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:11px;margin-top:11px}
+.tpc{background:rgba(30,41,59,.45);border:1px solid var(--bo);border-radius:12px;padding:16px;transition:.3s}
+.tpc:hover{border-color:var(--cd);transform:translateY(-3px)}.tpc .ti{font-size:1.6rem;margin-bottom:8px}
+.tpc h4{color:#fff;margin-bottom:6px;font-size:.94rem}.tpc p{color:var(--td);font-size:.83rem;line-height:1.65}
+.ccc{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:11px;margin-top:11px}
+.ccol{background:#070d1f;border:1px solid var(--bo);border-radius:11px;overflow:hidden;display:flex;flex-direction:column}
+.cch{padding:8px 13px;font-size:.8rem;font-weight:700;border-bottom:1px solid var(--bo)}
+.ch-c{background:rgba(59,130,246,.12);color:#60a5fa}.ch-cpp{background:rgba(139,92,246,.12);color:#a78bfa}.ch-py{background:rgba(234,179,8,.12);color:#facc15}
+.ccol pre{padding:11px;font-family:'Fira Code',monospace;font-size:.77rem;color:#c7d2fe;line-height:1.65;overflow-x:auto}
+.exb2{margin-top:16px;background:rgba(6,182,212,.06);border-left:4px solid var(--cy);padding:14px 20px;border-radius:0 11px 11px 0}
+.exb2 h4{color:var(--cy);margin-bottom:8px}.exb2 ul{padding-left:16px;color:var(--td);font-size:.88rem;line-height:1.85}
+/* BOT */
+.pb{position:fixed;bottom:22px;right:22px;width:108px;height:126px;z-index:999;cursor:pointer;filter:drop-shadow(0 10px 20px rgba(6,182,212,.3));transition:transform .3s cubic-bezier(.34,1.56,.64,1);animation:bpk 16s ease-in-out infinite}
+.pb:hover{transform:scale(1.1) translateY(-5px);animation-play-state:paused}
+.rsvg{width:100%;height:100%;overflow:visible;animation:bfl 3s ease-in-out infinite}
+@keyframes bfl{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.bar{transform-origin:160px 120px;animation:bwv 2.2s ease-in-out infinite}
+@keyframes bwv{0%,100%{transform:rotate(0deg)}25%{transform:rotate(22deg)}75%{transform:rotate(-12deg)}}
+@keyframes bpk{0%,92%,100%{transform:translateY(0);opacity:1}96%{transform:translateY(160px);opacity:.2}}
+.btt{position:absolute;top:-48px;right:0;background:#fff;color:#0f172a;padding:8px 13px;border-radius:9px;font-size:.8rem;font-weight:700;white-space:nowrap;box-shadow:0 5px 18px rgba(0,0,0,.2);opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none}
+.btt::after{content:'';position:absolute;bottom:-5px;right:24px;width:9px;height:9px;background:#fff;transform:rotate(45deg)}
+.pb:hover .btt{opacity:1;transform:translateY(0)}
+footer{text-align:center;padding:42px 20px;border-top:1px solid var(--bo);color:var(--td);font-size:.87rem;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="amb"></div><div class="orb o1"></div><div class="orb o2"></div>
+<header>
+<div class="brand">✦ Đỗ Hồng Phúc DevStore — MindCode </div>
+<h1>Đỗ Hồng Phúc School</h1>
+<p class="sub">Ngữ Pháp • Từ Vựng • Code Lab AI • Brain Break • Website • VS Studio • CodeBlocks • Bot Telegram • AI Chat</p>
+</header>
+<nav class="tabs">
+<button class="tb active" onclick="sw('grammar',this)"><span>📖</span>Ngữ Pháp</button>
+<button class="tb" onclick="sw('vocab',this)"><span>📚</span>Từ Vựng</button>
+<button class="tb" onclick="sw('code',this)"><span>💻</span>Code Lab</button>
+<button class="tb" onclick="sw('games',this)"><span>🎮</span>Brain Break</button>
+<button class="tb" onclick="sw('website',this)"><span>🌐</span>Website</button>
+<button class="tb" onclick="sw('studio',this)"><span>🏗️</span>VS Studio</button>
+<button class="tb" onclick="sw('excel',this)"><span>📊</span>Excel</button>
+<button class="tb" onclick="sw('codeblocks',this)"><span>📱</span>CodeBlocks</button>
+<button class="tb" onclick="sw('telegram',this)"><span>🤖</span>Bot Telegram</button>
+<button class="tb" onclick="sw('aichat',this)"><span>🧠</span>AI Chat</button>
+</nav>
+ 
+<!-- ===== GRAMMAR ===== -->
+<section id="grammar" class="sec active">
+<div class="gh"><h2>📖 Ngữ Pháp Lập Trình — Full Pro Edition</h2><p style="color:var(--td);font-size:.93rem;max-width:680px;margin:.5rem auto 0">Từ cơ bản đến nâng cao — giải thích như kể chuyện + Lộ trình học + Bảng so sánh đa ngôn ngữ</p></div>
+<div class="gnav">
+<button class="gnb active" onclick="sgp('g1',this)">1️⃣ Nền Tảng</button>
+<button class="gnb" onclick="sgp('g2',this)">2️⃣ Điều Khiển</button>
+<button class="gnb" onclick="sgp('g3',this)">3️⃣ Hàm & DS</button>
+<button class="gnb" onclick="sgp('g4',this)">4️⃣ OOP</button>
+<button class="gnb" onclick="sgp('g5',this)">5️⃣ Nâng Cao</button>
+<button class="gnb" onclick="sgp('g6',this)">6️⃣ So Sánh</button>
+<button class="gnb" onclick="sgp('g7',this)">7️⃣ Lộ Trình</button>
+</div>
+<div class="gp active" id="g1">
+<div class="gb bc"><span class="glbl lc">Phần 1 — Nền tảng</span><h3>🔤 1. Syntax — Ngữ pháp lập trình là gì?</h3>
+<p>Giống như tiếng Việt có quy tắc <strong>Chủ ngữ — Vị ngữ</strong>, lập trình cũng có quy tắc viết code để máy tính hiểu được.</p>
+<div class="ghl ghf"><strong style="color:var(--or)">🔥 Viết đúng → Máy chạy | Viết sai → Máy báo lỗi Syntax Error</strong></div></div>
+<div class="gb by"><h3>💬 2. Comment — Ghi chú cho con người đọc</h3>
+<p>Máy tính sẽ <strong>bỏ qua hoàn toàn</strong> phần này. Dùng để ghi chú lại code.</p>
+<div class="gcmp">
+<div class="gcc"><div class="gch ch-py" style="background:rgba(234,179,8,.1);color:#facc15">🐍 Python</div><pre># Đây là chú thích một dòng
+x = 5  # Ghi sau lệnh cũng được
+"""
+Chú thích nhiều dòng
+"""</pre></div>
+<div class="gcc"><div class="gch" style="background:rgba(59,130,246,.1);color:#60a5fa">🌐 JS / C / C++</div><pre>// Chú thích một dòng
+let x = 5; // sau lệnh
+/* Chú thích
+   nhiều dòng */</pre></div>
+</div></div>
+<div class="gb bp"><h3>📦 3. Biến (Variable) — Cái hộp đựng dữ liệu</h3>
+<p>Tưởng tượng bạn có nhiều cái hộp. Hộp tên <code style="background:rgba(6,182,212,.15);color:var(--cy);padding:1px 5px;border-radius:3px">tuoi</code> đựng số 20. Giá trị trong hộp có thể thay đổi bất cứ lúc nào.</p>
+<div class="gcmp">
+<div class="gcc"><div class="gch" style="background:rgba(234,179,8,.1);color:#facc15">🐍 Python</div><pre>tuoi = 20
+ten = "Nam"
+la_hoc_sinh = True
+# Không cần khai báo kiểu</pre></div>
+<div class="gcc"><div class="gch" style="background:rgba(59,130,246,.1);color:#60a5fa">🌐 JavaScript</div><pre>let tuoi = 20;
+const TEN = "Nam"; // const
+var cu = "cũ"; // tránh dùng</pre></div>
+<div class="gcc"><div class="gch" style="background:rgba(139,92,246,.1);color:#a78bfa">🅒 C / C++</div><pre>int tuoi = 20;
+char ten[] = "Nam";
+float diem = 9.5;
+bool ok = true;</pre></div>
+</div>
+<div class="ghl ghw"><strong style="color:var(--ye)">📌 Quy tắc đặt tên:</strong><br>
+✅ snake_case (Python) &nbsp; ✅ camelCase (JS) &nbsp; ✅ PascalCase (Class)<br>
+❌ Không bắt đầu bằng số &nbsp; ❌ Không có dấu cách &nbsp; ❌ Không trùng từ khóa</div></div>
+<div class="gb bgr"><h3>🏷️ 4. Kiểu Dữ Liệu (Data Types)</h3>
+<table class="gtb"><tr><th>Kiểu</th><th>Ý nghĩa</th><th>Ví dụ</th><th>Python</th><th>C/C++</th></tr>
+<tr><td><strong>int</strong></td><td>Số nguyên</td><td>10, -5, 0</td><td>x = 5</td><td>int x = 5;</td></tr>
+<tr><td><strong>float/double</strong></td><td>Số thực</td><td>3.14, -0.5</td><td>x = 3.14</td><td>float x = 3.14f;</td></tr>
+<tr><td><strong>str/char[]</strong></td><td>Chuỗi ký tự</td><td>"Hello"</td><td>s = "Hello"</td><td>char s[] = "Hi";</td></tr>
+<tr><td><strong>bool</strong></td><td>Đúng / Sai</td><td>True/False</td><td>b = True</td><td>bool b = true;</td></tr>
+<tr><td><strong>None/NULL</strong></td><td>Không có gì</td><td>None, null</td><td>x = None</td><td>int *p = NULL;</td></tr>
+</table></div>
+<div class="gb bre"><h3>➕ 5. Toán Tử (Operators)</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:12px;margin-top:10px">
+<div><strong style="color:var(--cy)">Số học:</strong><table class="gtb" style="margin-top:7px"><tr><th>Ký hiệu</th><th>Tên</th><th>Ví dụ</th></tr><tr><td>+</td><td>Cộng</td><td>5+3=8</td></tr><tr><td>-</td><td>Trừ</td><td>5-3=2</td></tr><tr><td>*</td><td>Nhân</td><td>5*3=15</td></tr><tr><td>/</td><td>Chia</td><td>5/2=2.5</td></tr><tr><td>%</td><td>Chia lấy dư</td><td>5%2=1</td></tr><tr><td>**</td><td>Lũy thừa</td><td>2**3=8</td></tr></table></div>
+<div><strong style="color:var(--gr)">So sánh:</strong><table class="gtb" style="margin-top:7px"><tr><th>Ký hiệu</th><th>Ý nghĩa</th></tr><tr><td>==</td><td>Bằng nhau</td></tr><tr><td>!=</td><td>Khác nhau</td></tr><tr><td>&gt;</td><td>Lớn hơn</td></tr><tr><td>&lt;</td><td>Nhỏ hơn</td></tr><tr><td>&gt;=</td><td>Lớn hơn hoặc bằng</td></tr></table></div>
+<div><strong style="color:var(--ye)">Logic:</strong><table class="gtb" style="margin-top:7px"><tr><th>Python/C++</th><th>Ý nghĩa</th></tr><tr><td>and / &amp;&amp;</td><td>VÀ — cả 2 đều đúng</td></tr><tr><td>or / ||</td><td>HOẶC — 1 trong 2</td></tr><tr><td>not / !</td><td>PHỦ ĐỊNH</td></tr></table></div>
+</div>
+<div class="ghl ghr" style="margin-top:12px"><strong style="color:var(--re)">⚠️ Quan trọng!</strong> <code style="background:rgba(239,68,68,.15);color:#fca5a5;padding:1px 5px;border-radius:3px">=</code> là <strong>gán giá trị</strong>, còn <code style="background:rgba(239,68,68,.15);color:#fca5a5;padding:1px 5px;border-radius:3px">==</code> là <strong>so sánh bằng</strong>. Nhầm là lỗi kinh điển số 1!</div></div>
+</div>
+<div class="gp" id="g2">
+<div class="gb bc"><span class="glbl lc">Phần 2 — Cấu trúc điều khiển</span><h3>🔀 6. If / Else — Nếu... thì...</h3>
+<div class="gcmp">
+<div class="gcc"><div class="gch" style="background:rgba(234,179,8,.1);color:#facc15">🐍 Python</div><pre>diem = 8
+if diem >= 9:
+    print("Xuất sắc")
+elif diem >= 7:
+    print("Khá")
+elif diem >= 5:
+    print("Trung bình")
+else:
+    print("Yếu")</pre></div>
+<div class="gcc"><div class="gch" style="background:rgba(59,130,246,.1);color:#60a5fa">🌐 JS / C</div><pre>let diem = 8;
+if (diem >= 9) {
+    console.log("Xuất sắc");
+} else if (diem >= 7) {
+    console.log("Khá");
+} else {
+    console.log("Yếu");
+}</pre></div>
+</div>
+<div class="ghl ght"><strong style="color:var(--cy)">💡 Ternary:</strong> <code style="background:rgba(6,182,212,.1);color:var(--cy);padding:1px 4px;border-radius:3px">let s = (tuoi >= 18) ? "Người lớn" : "Trẻ em";</code></div></div>
+<div class="gb bp"><h3>🔁 7. Vòng lặp (Loops)</h3>
+<div class="gcmp">
+<div class="gcc"><div class="gch" style="background:rgba(6,182,212,.1);color:var(--cy)">for — biết trước số lần</div><pre># Python
+for i in range(5):
+    print(f"Lần {i}")
+ 
+// JS
+for (let i = 0; i &lt; 5; i++) {
+    console.log(i);
+}</pre></div>
+<div class="gcc"><div class="gch" style="background:rgba(139,92,246,.1);color:#a78bfa">while — không biết trước</div><pre># Python
+dem = 5
+while dem > 0:
+    print(dem)
+    dem -= 1
+ 
+// JS
+let i = 0;
+do { console.log(i++); }
+while (i &lt; 3);</pre></div>
+</div>
+<div class="ghl ghw"><strong style="color:var(--ye)">🛑 break</strong> — Dừng vòng lặp ngay lập tức &nbsp;|&nbsp; <strong>continue</strong> — Bỏ qua lần này, nhảy sang lần kế tiếp</div></div>
+</div>
+<div class="gp" id="g3">
+<div class="gb bgr"><span class="glbl lg">Phần 3 — Hàm & Cấu trúc dữ liệu</span><h3>⚙️ 8. Hàm (Function) — Công thức nấu ăn</h3>
+<div class="gcmp">
+<div class="gcc"><div class="gch" style="background:rgba(234,179,8,.1);color:#facc15">🐍 Python</div><pre>def tinh_tong(a, b):
+    return a + b
+ 
+tong = tinh_tong(5, 3)
+print(tong)  # 8</pre></div>
+<div class="gcc"><div class="gch" style="background:rgba(59,130,246,.1);color:#60a5fa">🌐 JS (Arrow)</div><pre>const tong = (a, b) => a + b;
+// hoặc
+function tinhTong(a, b) {
+    return a + b;
+}</pre></div>
+<div class="gcc"><div class="gch" style="background:rgba(139,92,246,.1);color:#a78bfa">🅒 C / C++</div><pre>int tinhTong(int a, int b) {
+    return a + b;
+}
+int main() {
+    printf("%d", tinhTong(5,3));
+    return 0;
+}</pre></div>
+</div></div>
+<div class="gb bc"><h3>📋 9. Mảng & Dictionary</h3>
+<div class="gcmp">
+<div class="gcc"><div class="gch" style="background:rgba(234,179,8,.1);color:#facc15">🐍 List Python</div><pre>hs = ["An","Bình","Cường"]
+print(hs[0])   # An (index=0!)
+print(hs[-1])  # Cường
+hs.append("Dung")</pre></div>
+<div class="gcc"><div class="gch" style="background:rgba(59,130,246,.1);color:#60a5fa">🌐 Array JS</div><pre>let hs = ["An","Bình","Cường"];
+console.log(hs[0]);  // An
+hs.push("Dung");
+hs.pop(); // xóa cuối</pre></div>
+<div class="gcc"><div class="gch" style="background:rgba(234,179,8,.1);color:#facc15">🐍 Dict Python</div><pre>sv = {
+    "ten": "Nguyễn A",
+    "tuoi": 20,
+    "diem": 8.5
+}
+print(sv["ten"])</pre></div>
+</div>
+<div class="ghl ghw"><strong style="color:var(--ye)">⚠️ Chỉ số bắt đầu từ 0!</strong> Phần tử đầu tiên của mảng luôn là <code style="background:rgba(234,179,8,.1);color:#facc15;padding:1px 4px;border-radius:3px">[0]</code>, không phải [1]!</div></div>
+</div>
+<div class="gp" id="g4">
+<div class="gb bp"><span class="glbl lp">Phần 4 — OOP</span><h3>🏗️ 10. Class và Object</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0">
+<div style="padding:10px 13px;background:rgba(6,182,212,.06);border-radius:8px;border-left:3px solid var(--cy)"><strong style="color:var(--cy)">Class</strong> = Bản vẽ thiết kế xe hơi</div>
+<div style="padding:10px 13px;background:rgba(34,197,94,.06);border-radius:8px;border-left:3px solid var(--gr)"><strong style="color:var(--gr)">Object</strong> = Chiếc xe thật được đúc ra</div>
+</div>
+<div class="gcmp">
+<div class="gcc"><div class="gch" style="background:rgba(234,179,8,.1);color:#facc15">🐍 Python</div><pre>class ConMeo:
+    def __init__(self, ten, mau):
+        self.ten = ten
+        self.mau = mau
+    def keu(self):
+        print(f"{self.ten}: Meo!")
+ 
+meo1 = ConMeo("Mun","Đen")
+meo1.keu()</pre></div>
+<div class="gcc"><div class="gch" style="background:rgba(59,130,246,.1);color:#60a5fa">🌐 JavaScript</div><pre>class ConMeo {
+    constructor(ten, mau) {
+        this.ten = ten;
+        this.mau = mau;
+    }
+    keu() {
+        console.log(this.ten+": Meo!");
+    }
+}
+let m = new ConMeo("Mun","Đen");
+m.keu();</pre></div>
+</div></div>
+<div class="gb bi"><h3>🔮 11. 4 Tính Chất OOP</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin-top:10px">
+<div style="background:rgba(6,182,212,.06);border:1px solid rgba(6,182,212,.18);border-radius:12px;padding:16px"><div style="font-size:1.5rem;margin-bottom:7px">🔒</div><strong style="color:var(--cy)">1. Đóng gói</strong><p style="margin-top:6px">Che giấu dữ liệu nhạy cảm. Không sửa trực tiếp tiền ngân hàng, phải qua nạp/rút.</p></div>
+<div style="background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.18);border-radius:12px;padding:16px"><div style="font-size:1.5rem;margin-bottom:7px">👨‍👧</div><strong style="color:var(--gr)">2. Kế thừa</strong><p style="margin-top:6px">Con kế thừa gen từ cha. Lớp Dog kế thừa từ Animal. Tiết kiệm code cực kỳ.</p></div>
+<div style="background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.18);border-radius:12px;padding:16px"><div style="font-size:1.5rem;margin-bottom:7px">🎭</div><strong style="color:#a78bfa">3. Đa hình</strong><p style="margin-top:6px">Cùng tên keu() nhưng Mèo kêu "Meo", Chó kêu "Gâu". Cùng interface, khác cách.</p></div>
+<div style="background:rgba(249,115,22,.06);border:1px solid rgba(249,115,22,.18);border-radius:12px;padding:16px"><div style="font-size:1.5rem;margin-bottom:7px">🌫️</div><strong style="color:var(--or)">4. Trừu tượng</strong><p style="margin-top:6px">Lái xe chỉ cần biết vô-lăng, ga, phanh — không cần biết động cơ đốt trong.</p></div>
+</div></div>
+</div>
+<div class="gp" id="g5">
+<div class="gb bc"><span class="glbl lc">Phần 5 — Nâng cao</span><h3>🌐 12. Scope, Try/Catch, Async</h3>
+<div class="gcc" style="margin-bottom:14px"><pre>// Scope: biến chỉ sống trong { } của nó
+let ten = "Nam";  // Global
+function xinChao() {
+    let loiChao = "Hello";  // Local
+    console.log(loiChao + " " + ten);  // ✅
+}
+console.log(loiChao);  // ❌ LỖI! loiChao đã chết</pre></div>
+<div class="gcc" style="margin-bottom:14px"><pre># Try/Catch - Dự phòng sự cố
+try:
+    a = 10 / 0
+except ZeroDivisionError:
+    print("Không chia được 0!")
+finally:
+    print("Luôn chạy dù có lỗi")</pre></div>
+<div class="gcc"><pre>// Async/Await - Lời hứa bất đồng bộ
+async function getData() {
+    try {
+        const res = await fetch('https://api.example.com/data');
+        const data = await res.json();
+        console.log(data);
+    } catch (e) { console.log("Lỗi mạng:", e); }
+}</pre></div></div>
+</div>
+<div class="gp" id="g6">
+<div class="gb bc"><span class="glbl lc">Phần 6 — So sánh đa ngôn ngữ</span><h3>📊 Bảng So Sánh Cú Pháp</h3>
+<div style="overflow-x:auto;margin-top:11px">
+<table class="gtb" style="min-width:680px">
+<tr><th>Thao tác</th><th>🐍 Python</th><th>🌐 JavaScript</th><th>🅒 C</th><th>🅒🅒 C++</th></tr>
+<tr><td>In ra</td><td>print("Hi")</td><td>console.log("Hi");</td><td>printf("Hi");</td><td>cout &lt;&lt; "Hi";</td></tr>
+<tr><td>Nhập vào</td><td>input("Tên: ")</td><td>prompt("Tên: ")</td><td>scanf("%s",&amp;s);</td><td>cin &gt;&gt; s;</td></tr>
+<tr><td>Khai báo biến</td><td>x = 5</td><td>let x = 5;</td><td>int x = 5;</td><td>int x = 5;</td></tr>
+<tr><td>Hằng số</td><td>X = 5 (quy ước)</td><td>const X = 5;</td><td>#define X 5</td><td>const int X = 5;</td></tr>
+<tr><td>Khối lệnh</td><td>Thụt đầu dòng</td><td>{ }</td><td>{ }</td><td>{ }</td></tr>
+<tr><td>Kết thúc lệnh</td><td>Xuống dòng</td><td>;</td><td>;</td><td>;</td></tr>
+<tr><td>Vòng for</td><td>for i in range(5):</td><td>for(let i=0;i&lt;5;i++)</td><td>for(int i=0;i&lt;5;i++)</td><td>for(auto x:v)</td></tr>
+<tr><td>Hàm</td><td>def ten():</td><td>function ten() {}</td><td>int ten() {}</td><td>int ten() {}</td></tr>
+<tr><td>Class</td><td>class Ten:</td><td>class Ten { }</td><td>struct (không OOP)</td><td>class Ten { public: };</td></tr>
+<tr><td>Null</td><td>None</td><td>null, undefined</td><td>NULL</td><td>nullptr (C++11)</td></tr>
+<tr><td>Mảng động</td><td>list = []</td><td>let a = []</td><td>malloc()</td><td>vector&lt;int&gt; v</td></tr>
+</table></div></div>
+<div class="gb bgr"><h3>📌 7 Quy Tắc Vàng</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-top:10px">
+<div style="padding:12px;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.14);border-radius:10px"><strong style="color:var(--gr)">1. Phân biệt hoa/thường</strong><br><span style="font-size:.88rem;color:var(--td)">Name, name, NAME là 3 biến KHÁC nhau!</span></div>
+<div style="padding:12px;background:rgba(6,182,212,.06);border:1px solid rgba(6,182,212,.14);border-radius:10px"><strong style="color:var(--cy)">2. Dấu ngoặc phải cặp</strong><br><span style="font-size:.88rem;color:var(--td)">Mở ( thì phải có ), mở { thì phải có }.</span></div>
+<div style="padding:12px;background:rgba(139,92,246,.06);border:1px solid rgba(139,92,246,.14);border-radius:10px"><strong style="color:#a78bfa">3. Python thụt đầu dòng</strong><br><span style="font-size:.88rem;color:var(--td)">Python coi tab là luật. Sai là IndentationError.</span></div>
+<div style="padding:12px;background:rgba(234,179,8,.06);border:1px solid rgba(234,179,8,.14);border-radius:10px"><strong style="color:var(--ye)">4. Dấu ; trong C/JS</strong><br><span style="font-size:.88rem;color:var(--td)">C, Java, JS cần ; để kết thúc câu lệnh.</span></div>
+<div style="padding:12px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.14);border-radius:10px"><strong style="color:var(--re)">5. Chuỗi trong nháy</strong><br><span style="font-size:.88rem;color:var(--td)">"hello" hoặc 'hello'. Không được để trần.</span></div>
+<div style="padding:12px;background:rgba(249,115,22,.06);border:1px solid rgba(249,115,22,.14);border-radius:10px"><strong style="color:var(--or)">6. Chỉ số bắt đầu từ 0</strong><br><span style="font-size:.88rem;color:var(--td)">Phần tử đầu tiên luôn là [0], không phải [1]!</span></div>
+<div style="padding:12px;background:rgba(99,102,241,.06);border:1px solid rgba(99,102,241,.14);border-radius:10px"><strong style="color:var(--in)">7. = vs == vs ===</strong><br><span style="font-size:.88rem;color:var(--td)">= gán | == so sánh giá trị | === so sánh cả kiểu (JS)</span></div>
+</div></div>
+</div>
+<div class="gp" id="g7">
+<div class="gb bi"><span class="glbl" style="background:rgba(99,102,241,.18);color:var(--in)">Phần 7 — Lộ trình</span><h3>🗺️ Lộ Trình Full Stack Developer — 10 Giai Đoạn</h3></div>
+<div class="rmc">
+<div class="rmc-card"><div class="rmc-n">1</div><h4>🧠 Tư duy lập trình</h4><p>Phân rã bài toán, nhận diện mẫu, trừu tượng hóa, thuật toán (Flowchart). Nền tảng quan trọng nhất!</p><div class="rmc-tools"><span class="rct">Flowchart</span><span class="rct">Pseudocode</span><span class="rct">Logic</span></div></div>
+<div class="rmc-card"><div class="rmc-n">2</div><h4>💻 Ngôn ngữ đầu tiên</h4><p>Chọn 1: Python (dễ nhất), JavaScript (web), hoặc C++ (hiểu sâu). Học cú pháp, biến, vòng lặp, hàm.</p><div class="rmc-tools"><span class="rct">Python</span><span class="rct">JS</span><span class="rct">C++</span></div></div>
+<div class="rmc-card"><div class="rmc-n">3</div><h4>🏗️ OOP & Git</h4><p>4 tính chất OOP. Quản lý code với Git & GitHub — "cỗ máy thời gian" của developer.</p><div class="rmc-tools"><span class="rct">OOP</span><span class="rct">Git</span><span class="rct">GitHub</span></div></div>
+<div class="rmc-card"><div class="rmc-n">4</div><h4>🗄️ Database</h4><p>SQL (MySQL, PostgreSQL) cho dữ liệu có cấu trúc. NoSQL (MongoDB) cho linh hoạt. CRUD operations.</p><div class="rmc-tools"><span class="rct">SQL</span><span class="rct">MySQL</span><span class="rct">MongoDB</span></div></div>
+<div class="rmc-card"><div class="rmc-n">5</div><h4>🚀 Dự án thực tế</h4><p>Build sản phẩm! To-do list, Web bán hàng, Bot Telegram. Deploy. Fix bug = học nhanh nhất!</p><div class="rmc-tools"><span class="rct">Project</span><span class="rct">Deploy</span><span class="rct">Debug</span></div></div>
+<div class="rmc-card"><div class="rmc-n">6</div><h4>🎨 Frontend & UI/UX</h4><p>HTML5, CSS3, JavaScript ES6+. Framework React/Vue. Responsive Design. UX/UI cơ bản.</p><div class="rmc-tools"><span class="rct">React</span><span class="rct">CSS</span><span class="rct">UI/UX</span></div></div>
+<div class="rmc-card"><div class="rmc-n">7</div><h4>⚙️ Backend & API</h4><p>Node.js, Python Flask/Django. RESTful API, JWT Authentication, Caching (Redis).</p><div class="rmc-tools"><span class="rct">Node.js</span><span class="rct">REST API</span><span class="rct">JWT</span></div></div>
+<div class="rmc-card"><div class="rmc-n">8</div><h4>🏛️ Clean Code & Patterns</h4><p>SOLID principles, Design Patterns (Singleton, Factory, Observer). Refactoring.</p><div class="rmc-tools"><span class="rct">SOLID</span><span class="rct">Patterns</span><span class="rct">Clean Code</span></div></div>
+<div class="rmc-card"><div class="rmc-n">9</div><h4>🐳 DevOps & Cloud</h4><p>Docker, CI/CD (GitHub Actions), Cloud AWS/GCP/Azure. Linux terminal commands.</p><div class="rmc-tools"><span class="rct">Docker</span><span class="rct">CI/CD</span><span class="rct">AWS</span></div></div>
+<div class="rmc-card"><div class="rmc-n">10</div><h4>🏆 System Design</h4><p>Cấu trúc dữ liệu nâng cao, Big O Notation, Microservices. Bảo mật (XSS, SQL Injection).</p><div class="rmc-tools"><span class="rct">Big O</span><span class="rct">Microservices</span><span class="rct">Security</span></div></div>
+</div>
+<div class="gb bgr" style="margin-top:18px"><h3>📊 Bảng Tóm Tắt</h3>
+<table class="gtb"><tr><th>Giai đoạn</th><th>Mục tiêu</th><th>Thời gian</th><th>Công cụ</th></tr>
+<tr><td><strong style="color:var(--cy)">Sơ cấp</strong></td><td>Hiểu logic, viết code đầu tiên</td><td>1-3 tháng</td><td>Python/C++, Flowchart, Arrays</td></tr>
+<tr><td><strong style="color:var(--gr)">Trung cấp</strong></td><td>Làm được sản phẩm thực tế</td><td>3-6 tháng</td><td>OOP, SQL, Git, React/Node.js</td></tr>
+<tr><td><strong style="color:var(--ye)">Cao cấp</strong></td><td>Tối ưu & bảo mật hệ thống</td><td>6-12 tháng</td><td>Docker, System Design, Security</td></tr>
+<tr><td><strong style="color:var(--pk)">Senior</strong></td><td>Thiết kế kiến trúc lớn</td><td>1-3 năm</td><td>Microservices, Cloud, Leadership</td></tr>
+</table></div>
+</div>
+</section>
+ 
+<!-- ===== VOCAB ===== -->
+<section id="vocab" class="sec">
+<div class="st">📚 Từ điển lập trình — Giải thích như kể chuyện + Khi nào dùng + Mẹo pro</div>
+<div class="lf">
+<div class="chip active" onclick="fv('all',this)">✨ Tất cả</div>
+<div class="chip" onclick="fv('c',this)">C</div>
+<div class="chip" onclick="fv('cpp',this)">C++</div>
+<div class="chip" onclick="fv('py',this)">Python</div>
+<div class="chip" onclick="fv('web',this)">Web/JS</div>
+<div class="chip" onclick="fv('git',this)">Git/DevOps</div>
+<div class="chip" onclick="fv('algo',this)">Thuật toán</div>
+<div class="chip" onclick="fv('ai',this)">AI/Concepts</div>
+</div>
+<div class="vg" id="vocabGrid"></div>
+</section>
+ 
+<!-- ===== CODE LAB ===== -->
+<section id="code" class="sec">
+<div class="st">💻 Code Lab AI — Luyện code từ số 0 đến siêu cao thủ</div>
+<div class="cl">
+<div class="pnl" style="height:fit-content">
+<div style="font-weight:700;margin-bottom:12px;color:#fff;font-size:1.05rem">🎲 Chọn thử thách</div>
+<div class="cr">
+<select id="langSelect" onchange="onLC()">
+<option value="python">🐍 Python</option>
+<option value="c">🅒 C</option>
+<option value="cpp">🅒🅒 C++</option>
+</select>
+<select id="levelSelect">
+<option value="beginner">🌱 Mới bắt đầu</option>
+<option value="intermediate">⚡ Trung bình</option>
+<option value="advanced">🔥 Nâng cao</option>
+<option value="expert">👑 Expert</option>
+<option value="math">📐 Toán học</option>
+</select>
+</div>
+<button onclick="genEx()" style="width:100%;margin-bottom:12px;padding:11px">🤖 AI Tạo Bài Tập</button>
+<div id="exerciseBox" style="display:none">
+<div style="display:flex;gap:7px;margin-bottom:9px;flex-wrap:wrap">
+<span class="eb" id="exLang">PYTHON</span><span class="eb" id="exLv">BEGINNER</span>
+<span class="eb" style="color:var(--cy)"># <span id="exNum">1</span></span>
+</div>
+<div style="font-size:1rem;font-weight:700;color:var(--cy);margin-bottom:7px" id="exTitle"></div>
+<div style="color:var(--td);font-size:.9rem;margin-bottom:10px;line-height:1.6" id="exDesc"></div>
+<div style="background:rgba(0,0,0,.2);padding:10px;border-radius:8px;font-size:.83rem;color:var(--td);border-left:3px solid var(--ye)">
+<strong style="color:var(--ye)">💡 Gợi ý:</strong> <span id="exHint"></span>
+</div>
+</div>
+</div>
+<div>
+<div class="pnl">
+<div class="cr" style="justify-content:space-between">
+<div style="font-weight:700;color:#fff">✍️ Soạn Code</div>
+<div style="display:flex;gap:7px">
+<button class="sec2" onclick="resCode()">🔄 Reset</button>
+<button onclick="runCode()">▶ Chạy / Kiểm Tra</button>
+</div>
+</div>
+<div class="ew">
+<div class="eh"><div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div>
+<span style="margin-left:7px;font-size:.8rem;color:var(--td);font-family:'Fira Code',monospace" id="edLang">main.py</span></div>
+<textarea class="ce" id="codeEditor" spellcheck="false" placeholder="# Chọn ngôn ngữ → chọn cấp độ → bấm AI Tạo Bài Tập!"></textarea>
+</div>
+<div class="ob"><div class="ol">📟 Output</div><div id="output">Sẵn sàng...</div></div>
+<div id="aiBox" class="ar hidden"><strong style="color:#fff">🧠 AI Review:</strong><div id="aiText" style="margin-top:7px"></div></div>
+</div>
+</div>
+</div>
+</section>
+ 
+<!-- ===== GAMES ===== -->
+<section id="games" class="sec">
+<div class="st">🎮 Brain Break — Nghỉ 5 phút, code ngon hơn 50%</div>
+<p style="color:var(--td);margin-bottom:20px;font-size:.93rem">Não bộ cần nghỉ giữa hiệp. Chơi xong quay lại, fix bug nhanh gấp đôi!</p>
+<div class="gg">
+<div class="gc"><div class="gch2"><h3>🐍 Rắn Săn Mồi</h3><span style="font-size:.77rem;color:var(--td)">Classic</span></div>
+<div class="gbdy"><canvas id="snakeCanvas" class="gcanv" width="270" height="270"></canvas>
+<div class="gsc">Điểm: <span id="snakeScore">0</span></div>
+<div class="gctl"><button onclick="startSnake()">▶ Chơi</button><button class="sec2" onclick="pauseSnake()">⏸</button></div></div></div>
+<div class="gc"><div class="gch2"><h3>🧠 Lật Thẻ</h3><span style="font-size:.77rem;color:var(--td)">Memory</span></div>
+<div class="gbdy"><div class="mgg" id="memoryGrid"></div>
+<div class="gctl" style="margin-top:10px"><button onclick="initMemory()">🔄 Chơi lại</button><div class="gsc" style="margin:0">Lượt: <span id="memoryMoves">0</span></div></div></div></div>
+<div class="gc"><div class="gch2"><h3>🧮 Toán Nhanh</h3><span style="font-size:.77rem;color:var(--td)">Math Quiz</span></div>
+<div class="gbdy" style="text-align:center">
+<div id="mathQ" style="font-size:1.8rem;font-weight:800;color:#fff;margin:12px 0;font-family:'Fira Code',monospace;min-height:46px">Bấm Bắt đầu!</div>
+<div id="mathChoices" style="display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-bottom:11px"></div>
+<div style="color:var(--cy);font-size:.88rem;font-weight:700">Điểm: <span id="mathSc">0</span> | ⏱️ <span id="mathTm">30</span>s</div>
+<div class="gctl" style="margin-top:10px"><button onclick="startMath()">▶ Bắt đầu</button></div></div></div>
+<div class="gc"><div class="gch2"><h3>🧱 Brick Breaker</h3><span style="font-size:.77rem;color:var(--td)">Arcade</span></div>
+<div class="gbdy"><canvas id="brickCanvas" class="gcanv" width="270" height="195"></canvas>
+<div class="gsc">Điểm: <span id="brickScore">0</span></div>
+<div class="gctl"><button onclick="startBrick()">▶ Chơi</button><button class="sec2" onclick="resetBrick()">🔄</button></div></div></div>
+<div class="gc" style="grid-column:1/-1"><div class="gch2"><h3>⌨️ Typing Speed</h3><span style="font-size:.77rem;color:var(--td)">Speed</span></div>
+<div class="gbdy">
+<div class="tys"><span>WPM: <b id="wpmStat">0</b></span><span>Chính xác: <b id="accStat">100%</b></span><span>⏱️ <b id="timeStat">60</b>s</span></div>
+<div class="tyb" id="typingBox">Bấm "Bắt đầu" để chơi...</div>
+<div class="gctl" style="gap:10px">
+<button onclick="startTyping()">▶ Bắt đầu</button>
+<input type="text" id="typingInput" placeholder="Gõ tại đây..." style="flex:1;max-width:440px" disabled oninput="checkTyping()">
+</div></div></div>
+<div class="gc"><div class="gch2"><h3>🎯 Code Quiz</h3><span style="font-size:.77rem;color:var(--td)">Quiz</span></div>
+<div class="gbdy">
+<div id="quizQ" style="color:#fff;font-size:.94rem;font-weight:600;min-height:58px;line-height:1.6;margin-bottom:12px">Bấm Bắt đầu để chơi Quiz!</div>
+<div id="quizC" style="display:flex;flex-direction:column;gap:6px"></div>
+<div style="display:flex;justify-content:space-between;margin-top:11px;color:var(--td);font-size:.87rem">
+<span>Điểm: <b style="color:var(--cy)" id="quizSc">0</b></span><span>Câu: <b id="quizN">0</b>/10</span></div>
+<div class="gctl" style="margin-top:7px"><button onclick="startQuiz()">▶ Bắt đầu</button></div></div></div>
+</div>
+</section>
+ 
+<!-- ===== WEBSITE ===== -->
+<section id="website" class="sec">
+<div class="st">🌐 Website Live Editor — HTML + CSS + JavaScript</div>
+<p style="color:var(--td);margin-bottom:14px;font-size:.92rem">Viết HTML, CSS, JavaScript → Xem kết quả <strong>trực tiếp</strong>. Giống Learning Axis!</p>
+<div class="wl">
+<div class="wt">
+<button class="wrl" onclick="runWs()">▶ Run</button>
+<div class="wlt">
+<div class="wlti active" id="wTabH" onclick="swWs('html')">HTML</div>
+<div class="wlti" id="wTabC" onclick="swWs('css')">CSS</div>
+<div class="wlti" id="wTabJ" onclick="swWs('js')">JavaScript</div>
+</div>
+<button class="sec2" onclick="clearWs()">🗑️ Xóa</button>
+<button class="sec2" onclick="loadWsTpl()">📄 Template</button>
+<button class="sec2" onclick="popWs()">↗️ Popout</button>
+</div>
+<div class="wm">
+<div class="wep">
+<div class="wei active" id="wHtmlEd">
+<div style="padding:7px 13px;background:#0f172a;font-size:.75rem;color:var(--cy);font-weight:700;border-bottom:1px solid var(--bo)">📄 index.html</div>
+<div class="wev"><div class="wln" id="wHLn">1</div><textarea class="wta" id="wHCode" spellcheck="false" oninput="swLn('h');dbWs()" onscroll="swSc('h')"></textarea></div>
+</div>
+<div class="wei" id="wCssEd">
+<div style="padding:7px 13px;background:#0f172a;font-size:.75rem;color:#a78bfa;font-weight:700;border-bottom:1px solid var(--bo)">🎨 style.css</div>
+<div class="wev"><div class="wln" id="wCLn">1</div><textarea class="wta" id="wCCode" spellcheck="false" oninput="swLn('c');dbWs()" onscroll="swSc('c')"></textarea></div>
+</div>
+<div class="wei" id="wJsEd">
+<div style="padding:7px 13px;background:#0f172a;font-size:.75rem;color:#facc15;font-weight:700;border-bottom:1px solid var(--bo)">⚡ script.js</div>
+<div class="wev"><div class="wln" id="wJLn">1</div><textarea class="wta" id="wJCode" spellcheck="false" oninput="swLn('j');dbWs()" onscroll="swSc('j')"></textarea></div>
+</div>
+</div>
+<div class="wpr">
+<div class="wph"><span>🌐 Live Preview</span><span style="color:#94a3b8;font-size:.74rem" id="wsStatus">Sẵn sàng</span></div>
+<iframe id="wsFrame" style="flex:1;width:100%;border:none;background:#fff"></iframe>
+</div>
+</div>
+</div>
+</section>
+ 
+<!-- ===== VS STUDIO ===== -->
+<section id="studio" class="sec">
+<div class="st">🏗️ VS Studio — Code Web + Phone Preview</div>
+<div class="ic">
+<div class="isb">
+<div class="ist"><span>📁 Explorer</span><span style="cursor:pointer;font-size:.8rem" onclick="expZip()">⬇️ ZIP</span></div>
+<div class="tra">
+<button onclick="newF()" style="font-size:.66rem;padding:4px 7px">📄 File</button>
+<button onclick="newFol()" style="font-size:.66rem;padding:4px 7px">📁</button>
+<button class="sec2" onclick="delIt()" style="font-size:.66rem;padding:4px 7px">🗑️</button>
+</div>
+<div class="itr" id="fileTree"></div>
+</div>
+<div class="iea">
+<div class="ita" id="ideTabs"></div>
+<div class="iew">
+<div class="ln" id="lineNumbers">1</div>
+<textarea class="ite" id="ideEditor" spellcheck="false" oninput="onII()" onscroll="sSync()" onkeydown="hTab(event)"></textarea>
+</div>
+</div>
+<div class="ppp">
+<div style="font-size:.72rem;color:var(--td);margin-bottom:11px;text-align:center;font-weight:700;text-transform:uppercase;letter-spacing:.8px">📱 Phone Preview</div>
+<div class="pfo">
+<div class="pnt"><div class="pc"></div><div class="psp"></div><div class="pc"></div></div>
+<div class="pst"><span>9:41</span><span>●●●</span></div>
+<div class="pbs"></div><div class="pbs2"></div><div class="pbl"></div>
+<div class="psc"><iframe id="phoneFrame" style="width:200%;height:100%;border:none;background:#fff;transform:scale(.5);transform-origin:0 0"></iframe></div>
+<div class="phb"></div>
+</div>
+<div style="margin-top:10px;display:flex;gap:6px;justify-content:center">
+<button onclick="rfPhone()" style="padding:5px 10px;font-size:.73rem">🔄</button>
+<button class="sec2" onclick="popPrev()" style="padding:5px 10px;font-size:.73rem">↗️</button>
+</div>
+</div>
+<div class="iterm" id="ideTerminal">
+<div class="tl">💻 Phúc Studio Terminal v3.0 — <span style="color:var(--gr)">Phone Preview Active</span></div>
+<div class="tl">Gõ <span class="tcmd">help</span> để xem lệnh | <span class="tcmd">run</span> để refresh</div>
+<div class="ti2"><span style="color:var(--gr)">➜</span><input type="text" id="termInput" onkeydown="hTerm(event)" placeholder="Nhập lệnh..."></div>
+</div>
+</div>
+</section>
+ 
+<!-- ===== EXCEL ===== -->
+<section id="excel" class="sec">
+<div class="st">📊 Excel Online — Bảng tính trực tuyến</div>
+<div class="exc">
+<div class="exctb">
+<div style="font-weight:700;color:#fff;font-size:.9rem;margin-right:8px">📊 Book1</div>
+<button onclick="addRow()" style="padding:5px 10px;font-size:.78rem">+ Dòng</button>
+<button onclick="addCol()" style="padding:5px 10px;font-size:.78rem">+ Cột</button>
+<button class="sec2" onclick="clearCell()" style="padding:5px 10px;font-size:.78rem">🗑️ Xóa ô</button>
+<button class="sec2" onclick="exportExcelCsv()" style="padding:5px 10px;font-size:.78rem">📥 CSV</button>
+<button class="sec2" onclick="sumCol()" style="padding:5px 10px;font-size:.78rem">Σ Tổng</button>
+<select id="sheetSel" onchange="switchSheet(this.value)" style="padding:4px 9px;font-size:.78rem;margin-left:8px">
+<option value="0">Sheet1</option>
+<option value="1">Sheet2</option>
+<option value="2">Sheet3</option>
+</select>
+</div>
+<div class="exfbar"><span style="color:var(--cy);font-weight:700;min-width:40px" id="cellRef">A1</span><span style="color:#475569">fx</span><input type="text" id="formulaBar" placeholder="Nhập công thức hoặc nội dung..." style="flex:1;background:transparent;border:none;color:var(--tx);font-family:'Fira Code',monospace;font-size:.82rem;outline:none" oninput="onFormula()"></div>
+<div class="exfw" id="excelWrap"></div>
+</div>
+</section>
+ 
+<!-- ===== CODEBLOCKS ===== -->
+<section id="codeblocks" class="sec">
+<div class="st">📱 CodeBlocks IDE — C / C++ Online Compiler</div>
+<div class="cbc">
+<div class="cbmb">
+<div class="cbmi">File</div><div class="cbmi">Edit</div>
+<div class="cbmi" onclick="cbBuild()">Build</div>
+<div class="cbmi" onclick="cbRun()">Run</div>
+<div class="cbmi" onclick="cbBuildRun()">Build & Run</div>
+<div class="cbmi">Debug</div><div class="cbmi">Help</div>
+</div>
+<div class="cbtb">
+<button onclick="cbNewFile()" style="padding:4px 10px;font-size:.76rem">📄 New</button>
+<button class="sec2" onclick="cbSave()" style="padding:4px 10px;font-size:.76rem">💾 Save</button>
+<div class="cbs2"></div>
+<button onclick="cbBuildRun()" style="padding:4px 12px;font-size:.76rem">▶ Build & Run</button>
+<button class="bg" onclick="cbRun()" style="padding:4px 10px;font-size:.76rem">▶ Run</button>
+<button onclick="cbBuild()" style="padding:4px 10px;font-size:.76rem;background:linear-gradient(135deg,var(--or),#ea580c)">🔨 Build</button>
+<button class="br" onclick="cbStop()" style="padding:4px 10px;font-size:.76rem">⏹ Stop</button>
+<div class="cbs2"></div>
+<select id="cbLang" onchange="cbLangChange()" style="padding:4px 10px;font-size:.78rem"><option value="c">C (GCC)</option><option value="cpp">C++ (G++)</option></select>
+<select id="cbTpl" onchange="cbTplLoad()" style="padding:4px 10px;font-size:.78rem">
+<option value="">-- Template --</option>
+<option value="hello">Hello World</option>
+<option value="calc">Máy tính</option>
+<option value="array">Mảng</option>
+<option value="struct">Struct SV</option>
+<option value="linked">Linked List</option>
+<option value="sort">Sắp xếp</option>
+<option value="oop">Class OOP</option>
+<option value="math">Toán học</option>
+</select>
+</div>
+<div class="cbm">
+<div class="cbsb">
+<div class="cbst">📂 Management</div>
+<div id="cbFileList"><div class="cbfi active" id="cfi-main">📄 main.c</div></div>
+<div class="cbst" style="margin-top:14px">📌 Symbols</div>
+<div id="cbSyms" style="color:var(--td);font-size:.78rem;padding:3px 6px">Chưa có</div>
+</div>
+<div class="cbew">
+<div class="cbet" id="cbTabs"><div class="cbt active">📄 main.c</div></div>
+<div class="cbea">
+<div class="cbln" id="cbLineNums">1</div>
+<textarea class="cbta" id="cbEditor" spellcheck="false" oninput="cbOnInput()" onkeydown="cbHTab(event)"></textarea>
+</div>
+</div>
+<div class="cbo">
+<div class="cboh">📟 Build Log / Output</div>
+<div id="cbOut"><div class="cbol" style="color:var(--td)">Chào mừng đến CodeBlocks Online! Chọn template hoặc viết code rồi Build &amp; Run.</div></div>
+</div>
+</div>
+</div>
+</section>
+ 
+<!-- ===== TELEGRAM ===== -->
+<section id="telegram" class="sec">
+<div class="st">🤖 Bot Telegram với Python</div>
+<div class="tgg">
+<div class="tgc"><h3>📋 Lộ trình 4 bước</h3>
+<div class="tgs"><div class="tgsn">1</div><p>Mở Telegram → Tìm <b>@BotFather</b> → Gõ <code>/newbot</code> → Sao chép <b>API Token</b>.</p></div>
+<div class="tgs"><div class="tgsn">2</div><p>Cài: <code>pip install python-telegram-bot</code> (v20+)</p></div>
+<div class="tgs"><div class="tgsn">3</div><p>Copy code mẫu → Thay <b>TOKEN</b> → Chạy <code>python bot.py</code></p></div>
+<div class="tgs"><div class="tgsn">4</div><p>Thử <code>/start</code> trong Telegram!</p></div>
+<div style="margin-top:12px;padding:11px;background:rgba(234,179,8,.08);border:1px solid rgba(234,179,8,.2);border-radius:9px;color:var(--ye);font-size:.88rem;line-height:1.6">
+💡 <b>24/7 miễn phí:</b> Deploy lên <b>Render</b>, <b>Railway</b> hoặc <b>PythonAnywhere</b></div></div>
+<div class="tgc"><h3>🐍 Echo Bot v20+</h3>
+<div class="cb2"><pre><span class="cm"># bot.py</span>
+<span class="kw">from</span> telegram <span class="kw">import</span> Update
+<span class="kw">from</span> telegram.ext <span class="kw">import</span> (
+    Application, CommandHandler,
+    MessageHandler, filters
+)
+TOKEN = <span class="st2">"YOUR_BOT_TOKEN"</span>
+ 
+<span class="kw">async def</span> <span class="fn">start</span>(update, ctx):
+    <span class="kw">await</span> update.message.reply_text(
+        <span class="st2">"👋 Chào! Gõ gì đó đi!"</span>)
+ 
+<span class="kw">async def</span> <span class="fn">echo</span>(update, ctx):
+    <span class="kw">await</span> update.message.reply_text(
+        <span class="st2">f"Bạn nói: {update.message.text}"</span>)
+ 
+<span class="kw">def</span> <span class="fn">main</span>():
+    app=Application.builder().token(TOKEN).build()
+    app.add_handler(CommandHandler(<span class="st2">"start"</span>,start))
+    app.add_handler(MessageHandler(
+        filters.TEXT&amp;~filters.COMMAND, echo))
+    app.run_polling()
+ 
+<span class="kw">if</span> __name__==<span class="st2">"__main__"</span>: main()</pre></div></div>
+</div>
+</section>
+ 
+<!-- ===== AI CHAT ===== -->
+<section id="aichat" class="sec">
+<div class="st">🧠 AI Chat — Chat với AI (Gemini / OpenAI)</div>
+<div class="chc">
+<div class="pnl" style="margin-bottom:13px;padding:13px 17px">
+<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+<select id="aiProv" style="min-width:175px">
+<option value="gemini">🌟 Google Gemini (SHOPDHP)</option>
+<option value="openai">🤖 OpenAI GPT</option>
+</select>
+<input type="password" id="aiKey" placeholder="🔑 Nhập API Key..." style="flex:1;min-width:200px">
+<button onclick="saveKey()" style="padding:9px 16px">💾 Lưu Key</button>
+<button class="sec2" onclick="clrChat()">🗑️ Xóa</button>
+</div>
+<div style="margin-top:8px;font-size:.8rem;color:var(--td)">
+💡 <strong style="color:var(--cy)">Gemini Đỗ Hồng Phúc:</strong> <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:var(--cy)">aistudio.google.com</a> &nbsp;|&nbsp;
+<strong style="color:var(--gr)">OpenAI:</strong> <a href="https://platform.openai.com/api-keys" target="_blank" style="color:var(--gr)">platform.openai.com</a>
+</div>
+</div>
+<div class="chh" id="chatHistory">
+<div class="echt" id="emptyChat">
+<div style="font-size:2.8rem;margin-bottom:12px">🤖</div>
+<div style="font-size:1.1rem;color:#fff;font-weight:700;margin-bottom:8px">Xin chào! Tôi là PhúcBot-AI</div>
+<div style="max-width:460px;margin:0 auto;line-height:1.7;color:var(--td)">
+Tôi có thể trò chuyện về <strong>mọi chủ đề</strong>: lập trình, toán, khoa học, kinh doanh, cuộc sống...<br><br>
+<strong style="color:var(--cy)">Nhập API Key → Bấm Lưu Key → Gõ câu hỏi → Gửi! 🚀</strong>
+</div>
+</div>
+</div>
+<div class="chctl">
+<input type="text" id="chatInput" placeholder="Hỏi tôi bất cứ điều gì..." onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendMsg()}" style="flex:1">
+<button onclick="sendMsg()" id="sendBtn">➤ Gửi</button>
+</div>
+</div>
+</section>
+ 
+<footer>
+<p>Thiết kế & phát triển bởi <strong style="color:var(--cy)">Đỗ Hồng Phúc</strong> <span class="pulse">✦</span></p>
+<p style="margin-top:7px;opacity:.7;font-size:.82rem">"Build • Play • Learn • Repeat — Ngày code không quạu, đêm code không ngủ!"</p>
+</footer>
+ 
+<!-- BOT FLOAT -->
+<div class="pb" onclick="openModal()">
+<div class="btt">👋 Bot Đỗ Hồng Phúc | Click để xem mẹo hay!</div>
+<svg class="rsvg" viewBox="0 0 200 240">
+<defs><linearGradient id="bb" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1e293b"/><stop offset="100%" stop-color="#0f172a"/></linearGradient></defs>
+<ellipse cx="100" cy="220" rx="50" ry="9" fill="#000" opacity=".22"/>
+<rect x="67" y="182" width="20" height="28" rx="10" fill="#0f172a"/>
+<rect x="113" y="182" width="20" height="28" rx="10" fill="#0f172a"/>
+<rect x="38" y="97" width="124" height="96" rx="38" fill="url(#bb)" stroke="rgba(6,182,212,.32)" stroke-width="2"/>
+<circle cx="100" cy="137" r="22" fill="rgba(6,182,212,.14)"/>
+<text x="100" y="145" text-anchor="middle" fill="#06b6d4" font-size="18" font-weight="700" font-family="Be Vietnam Pro">P</text>
+<circle cx="100" cy="64" r="50" fill="#1e293b" stroke="rgba(6,182,212,.22)" stroke-width="2"/>
+<line x1="100" y1="14" x2="100" y2="7" stroke="#64748b" stroke-width="2.5"/>
+<circle cx="100" cy="7" r="4.5" fill="#06b6d4"/>
+<ellipse cx="77" cy="58" rx="13" ry="17" fill="#020617"/>
+<ellipse cx="123" cy="58" rx="13" ry="17" fill="#020617"/>
+<circle cx="82" cy="52" r="4.5" fill="#fff"/>
+<circle cx="128" cy="52" r="4.5" fill="#fff"/>
+<path d="M 83 80 Q 100 91 117 80" stroke="#06b6d4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+<path d="M 40 127 Q 20 147 26 168" stroke="#475569" stroke-width="9" stroke-linecap="round" fill="none"/>
+<circle cx="26" cy="168" r="6.5" fill="#06b6d4"/>
+<g class="bar"><path d="M 160 127 Q 180 102 186 80" stroke="#475569" stroke-width="9" stroke-linecap="round" fill="none"/><circle cx="186" cy="80" r="6.5" fill="#06b6d4"/></g>
+</svg>
+</div>
+ 
+<!-- MODAL -->
+<div class="amo" id="aiModal" onclick="if(event.target===this)closeModal()">
+<div class="amb2">
+<div class="mh"><h2>🤖 Trung tâm Trợ giúp & Mẹo học</h2><button class="cx2" onclick="closeModal()">✕</button></div>
+<div class="mts">
+<button class="mt active" onclick="swMT('contact',event)">📱 Zalo</button>
+<button class="mt" onclick="swMT('tips',event)">🚀 Học nhanh</button>
+<button class="mt" onclick="swMT('code',event)">📖 So sánh Code</button>
+</div>
+<div class="mb">
+<div class="ms active" id="tab-contact">
+<div class="zc">
+<div style="font-size:3rem;margin-bottom:7px">💬</div>
+<div style="color:var(--td)">Zalo cá nhân của Đỗ Hồng Phúc</div>
+<div class="zn">0888 924 907</div>
+<p style="color:var(--td);max-width:420px;margin:0 auto 14px;font-size:.9rem;line-height:1.6">Hỏi bài, hỏi code, hỏi định hướng — mình trả lời hết!</p>
+<a class="bz" href="https://zalo.me/0888924907" target="_blank">📨 Mở Zalo Chat</a>
+</div>
+</div>
+<div class="ms" id="tab-tips">
+<div class="tpg">
+<div class="tpc"><div class="ti">⚡</div><h4>Quy tắc 20/80</h4><p>Thuộc 20% kiến thức cốt lõi = giải quyết 80% bài toán thực tế.</p></div>
+<div class="tpc"><div class="ti">🧠</div><h4>Feynman</h4><p>Học xong, tự giải thích lại bằng lời đơn giản như đang dạy trẻ 12 tuổi.</p></div>
+<div class="tpc"><div class="ti">🎯</div><h4>Active Recall</h4><p>Tắt tài liệu, tự viết lại code từ đầu. Não nhớ lâu hơn 5 lần đọc thụ động.</p></div>
+<div class="tpc"><div class="ti">🔁</div><h4>Spaced Repetition</h4><p>Ôn bài sau 1, 3, 7, 14 ngày. Kiến thức khắc sâu vĩnh viễn.</p></div>
+<div class="tpc"><div class="ti">🛠️</div><h4>Project Mini</h4><p>Mỗi tuần làm 1 project nhỏ. Học qua thực chiến là nhanh nhất.</p></div>
+<div class="tpc"><div class="ti">🐞</div><h4>Debug = Học</h4><p>Mỗi lần fix bug là não nạp thêm kinh nghiệm thực chiến quý giá!</p></div>
+</div>
+</div>
+<div class="ms" id="tab-code">
+<div style="color:var(--td);margin-bottom:12px;font-size:.93rem">Bài toán <strong>"Tính diện tích hình tròn"</strong> trong 3 ngôn ngữ:</div>
+<div class="ccc">
+<div class="ccol"><div class="cch ch-c">🅒 C</div><pre>#include &lt;stdio.h&gt;
+#define PI 3.14159
+int main() {
+    float r = 5.0;
+    float s = PI * r * r;
+    printf("S = %.2f", s);
+    return 0;
+}</pre></div>
+<div class="ccol"><div class="cch ch-cpp">🅒🅒 C++</div><pre>#include &lt;iostream&gt;
+using namespace std;
+int main() {
+    const float PI = 3.14159;
+    float r = 5.0;
+    cout &lt;&lt; "S = " &lt;&lt; PI * r * r;
+    return 0;
+}</pre></div>
+<div class="ccol"><div class="cch ch-py">🐍 Python</div><pre>import math
+r = 5.0
+s = math.pi * r ** 2
+print(f"S = {s:.2f}")</pre></div>
+</div>
+<div class="exb2"><h4>📌 Điểm khác biệt cốt lõi</h4><ul>
+<li><strong>C</strong>: Gần phần cứng nhất. Tự quản lý kiểu dữ liệu, kết thúc bằng ;</li>
+<li><strong>C++</strong>: Kế thừa C + OOP. cout/cin tự nhận kiểu</li>
+<li><strong>Python</strong>: Bỏ ký tự rườm rà, dùng thụt lề. Code ngắn nhất</li>
+</ul></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+ 
+<script>
+// ==================== VOCAB DATA ====================
+const vd=[
+{w:"Variable (Biến)",ts:"Cái hộp đựng dữ liệu",df:"Tưởng tượng bạn có một cái hộp tên là age, bỏ số 18 vào. Sau này gọi age là ra 18 ngay.",c:"all",ex:"int age = 18;\nage = 19;",wh:"Khi cần lưu giá trị thay đổi",wr:"Đầu hàm, đầu khối lệnh",tp:"Đặt tên có nghĩa, camelCase/snake_case"},
+{w:"Constant (Hằng)",ts:"Nhãn dán không đổi",df:"Như cái hộp dán keo rồi, bỏ PI = 3.14 vào thì suốt đời không đổi.",c:"all",ex:"const float PI = 3.14159;",wh:"Giá trị không đổi như PI, MAX_SIZE",wr:"Đầu file, global scope",tp:"Dùng UPPER_CASE, ưu tiên const thay #define"},
+{w:"int",ts:"Số nguyên",df:"Chỉ chứa số không có phần thập phân: 0, -5, 100. Dùng để đếm số lượng.",c:"all",ex:"int count = 10;",wh:"Đếm số lượng, chỉ số, tuổi",wr:"Khai báo biến, tham số hàm",tp:"Cẩn thận tràn số khi vượt 2 tỷ"},
+{w:"float / double",ts:"Số thực",df:"Chứa số có dấu phẩy: 3.14, -0.5. float nhẹ hơn, double chính xác hơn.",c:"all",ex:"float price = 29.99;\ndouble pi = 3.14159;",wh:"Tính toán khoa học, tiền tệ, tọa độ",wr:"Như int",tp:"So sánh float dùng epsilon, đừng == trực tiếp"},
+{w:"String (Chuỗi)",ts:"Dãy chữ cái",df:"Một câu, một từ, hoặc cả đoạn văn. C: char[]. C++: std::string. Python: str.",c:"all",ex:'string name = "Phuc";\nname = "Phuc" # Python',wh:"Xử lý văn bản, tên, địa chỉ",wr:"Khai báo biến, tham số hàm",tp:"Python strings là immutable"},
+{w:"bool",ts:"Đúng / Sai",df:"Chỉ có 2 giá trị: đúng hoặc sai. Dùng để kiểm tra điều kiện.",c:"all",ex:"bool isReady = true;\nis_ready = True  # Python",wh:"Kiểm tra điều kiện, cờ (flag)",wr:"Biểu thức điều kiện",tp:"Đặt tên như isReady, hasPermission"},
+{w:"if / else / elif",ts:"Nếu thì",df:"Rẽ nhánh cuộc đời. Nếu trời mưa thì mang ô, không thì đi chơi.",c:"all",ex:"if x > 0:\n    print('duong')",wh:"Ra quyết định dựa trên điều kiện",wr:"Trong hàm, thân vòng lặp",tp:"Ưu tiên trường hợp phổ biến nhất lên đầu"},
+{w:"for / while",ts:"Vòng lặp",df:"Lặp đi lặp lại một việc. for = biết trước số lần. while = khi điều kiện đúng.",c:"all",ex:"for i in range(5):\n    print(i)",wh:"for = biết trước; while = không biết",wr:"Xử lý mảng, danh sách",tp:"Python: for là king"},
+{w:"Function (Hàm)",ts:"Máy chuyên việc",df:"Gói một đoạn code xử lý việc gì đó, đặt tên, muốn dùng thì gọi tên.",c:"all",ex:"def chao(ten):\n    print('Chao', ten)",wh:"Đoạn code lặp lại >1 lần",wr:"Global scope, class (method)",tp:"1 hàm làm 1 việc duy nhất (SRP)"},
+{w:"Class (Lớp)",ts:"Bản thiết kế",df:"Như bản vẽ ngôi nhà. Class mô tả đối tượng có gì và làm được gì.",c:"all",ex:"class SinhVien:\n    def __init__(self, ten):\n        self.ten = ten",wh:"Mô hình hóa đối tượng thực tế",wr:"File riêng, module",tp:"Đặt tên danh từ PascalCase"},
+{w:"Array (Mảng)",ts:"Dãy ghế ngồi cố định",df:"Dãy các phần tử cùng kiểu, ngồi liền kề trong RAM.",c:"c,cpp",ex:"int a[5] = {1,2,3,4,5};",wh:"Số phần tử cố định, truy cập O(1)",wr:"C/C++ khai báo tĩnh",tp:"Không truy cập index vượt n-1"},
+{w:"vector (C++)",ts:"Túi đồ tự động giãn nở",df:"Mảng động trong C++. Tự quản lý bộ nhớ, thêm phần tử bằng push_back().",c:"cpp",ex:"vector<int> v = {1,2,3};\nv.push_back(4);",wh:"Cần mảng động",wr:"Thay thế mảng C trong 90% trường hợp",tp:"Dùng reserve(n) nếu biết trước size"},
+{w:"Pointer (*)",ts:"Con trỏ",df:"Chứa địa chỉ nhà của biến khác. Đặc sản của C/C++.",c:"c,cpp",ex:"int x = 10;\nint *p = &x;",wh:"Truy cập gián tiếp, cấp phát động",wr:"Embedded, system programming",tp:"Smart pointer trong C++ để tránh leak"},
+{w:"Recursion (Đệ quy)",ts:"Tự gọi chính mình",df:"Hàm gọi lại chính nó với bài toán nhỏ hơn. Cần điều kiện dừng rõ ràng.",c:"all",ex:"def factorial(n):\n    return 1 if n<=1 else n*factorial(n-1)",wh:"Bài toán cấu trúc tự tương tự",wr:"Thuật toán, duyệt cây",tp:"Luôn có base case"},
+{w:"try / except / catch",ts:"Bắt lỗi an toàn",df:"Thử làm gì đó (try). Nếu hỏng thì bắt lỗi (catch/except) xử lý nhẹ nhàng.",c:"all",ex:"try:\n    x = 1/0\nexcept:\n    print('Loi!')",wh:"Thao tác dễ lỗi (mở file, gọi API)",wr:"Bao quanh code rủi ro",tp:"Bắt lỗi cụ thể thay except chung"},
+{w:"API",ts:"Cổng kết nối dữ liệu",df:"Application Programming Interface. Cách để chương trình A nói chuyện với chương trình B.",c:"web",ex:"fetch('https://api.x.com/data')",wh:"Trao đổi dữ liệu giữa frontend-backend",wr:"HTTP endpoints, SDK",tp:"RESTful chuẩn, document bằng Swagger"},
+{w:"JSON",ts:"Định dạng dữ liệu chuẩn",df:"JavaScript Object Notation. Chuỗi text dạng key-value cực dễ đọc.",c:"web",ex:'{"ten": "Phuc", "tuoi": 20}',wh:"Trao đổi dữ liệu server-client",wr:"API request/response body",tp:"JSON không hỗ trợ comment; camelCase"},
+{w:"Git",ts:"Máy quay phim lùi thời gian",df:"Hệ thống quản lý phiên bản code. Lỡ xóa nhầm? Git giúp bạn quay về bản cũ.",c:"git",ex:"git commit -m 'Sua loi dang nhap'",wh:"Quản lý mã nguồn, teamwork",wr:"Mọi project lập trình",tp:"Commit thường xuyên, message rõ ràng"},
+{w:"Docker",ts:"Container hóa",df:"Đóng gói app + dependencies chạy mọi nơi đồng nhất.",c:"git",ex:"docker build -t myapp .\ndocker run -p 3000:3000 myapp",wh:"Triển khai, môi trường đồng nhất",wr:"Dev, CI/CD, production",tp:"Multi-stage build cho image nhỏ"},
+{w:"Big O Notation",ts:"Ký hiệu độ phức tạp",df:"Đo lường tốc độ tăng thời gian/bộ nhớ khi dữ liệu tăng.",c:"algo",ex:"O(1) < O(log n) < O(n) < O(n log n) < O(n²)",wh:"So sánh và tối ưu thuật toán",wr:"Phân tích interview",tp:"Tránh O(n²) trở lên nếu n lớn"},
+{w:"Dynamic Programming",ts:"Quy hoạch động",df:"Chia bài toán lớn thành bài toán con gối nhau, lưu kết quả tránh tính lại.",c:"algo",ex:"dp[i] = max(dp[i-1], dp[i-2]+a[i]);",wh:"Bài toán tối ưu có tính chất con tối ưu",wr:"Competitive programming",tp:"Nhận diện state và transition"},
+{w:"Neural Network",ts:"Mạng nơ-ron",df:"Mô hình AI lấy cảm hứng từ não người. Gồm lớp đầu vào, ẩn, và đầu ra.",c:"ai",ex:"model = tf.keras.Sequential([...])",wh:"Nhận diện ảnh, NLP, dự đoán phức tạp",wr:"Deep Learning framework",tp:"Bắt đầu với pretrained model"},
+{w:"SQL",ts:"Ngôn ngữ truy vấn",df:"Dùng để tạo, đọc, sửa, xóa dữ liệu trong database quan hệ.",c:"web",ex:"SELECT * FROM users WHERE age > 18;",wh:"Dữ liệu có cấu trúc, quan hệ rõ ràng",wr:"PostgreSQL, MySQL, SQLite",tp:"Parameterized query; đừng nối chuỗi SQL!"},
+{w:"SOLID",ts:"5 nguyên tắc thiết kế",df:"Single responsibility, Open/closed, Liskov substitution, Interface segregation, Dependency inversion.",c:"ai",ex:"// 1 class 1 việc",wh:"Viết code dễ bảo trì, mở rộng",wr:"OOP design",tp:"S: 1 class 1 việc; O: mở rộng đóng sửa"},
+{w:"Stack (DS)",ts:"Ngăn xếp LIFO",df:"Vào sau ra trước. Như chồng đĩa: đĩa trên cùng lấy ra đầu tiên.",c:"algo",ex:"stack.push(5); stack.pop();",wh:"Undo, DFS, kiểm tra ngoặc",wr:"Thuật toán, parser",tp:"std::stack là wrapper trong C++"},
+{w:"Queue",ts:"Hàng đợi FIFO",df:"Vào trước ra trước. Như xếp hàng mua vé.",c:"algo",ex:"queue.push(1); queue.pop();",wh:"BFS, task scheduling",wr:"Thuật toán đồ thị",tp:"Python: collections.deque để popleft O(1)"},
+{w:"Hash Table",ts:"Bảng băm",df:"Cấu trúc key-value, tìm kiếm trung bình O(1).",c:"algo",ex:"unordered_map<string,int> mp;",wh:"Tìm kiếm, insert, delete O(1)",wr:"Database indexing, caching",tp:"Load factor ~0.75 để tránh collision"},
+{w:"async / await",ts:"Lời hứa bất đồng bộ",df:"Dùng khi thao tác mất thời gian (gọi API, đọc file) mà không muốn chặn chương trình.",c:"web,py",ex:"async function getData(){\n  const res = await fetch('/api');\n}",wh:"Thao tác I/O, API, file",wr:"Frontend fetch, backend API",tp:"Bọc await trong try-catch"},
+{w:"Lambda",ts:"Hàm vô danh",df:"Hàm ngắn, không tên, dùng 1 lần. Rất tiện cho sort key, map, filter.",c:"py,cpp,web",ex:"f = lambda x: x*2\nsort(a, key=lambda x: x[1])",wh:"Hàm ngắn dùng 1 lần",wr:"Tham số hàm bậc cao",tp:"Không viết lambda phức tạp >1 dòng"},
+{w:"Memory Leak",ts:"Rò rỉ bộ nhớ",df:"Chương trình chiếm RAM không trả lại. Càng chạy càng nặng, cuối cùng sập.",c:"c,cpp",ex:"int *p = new int[1000];\n// quên delete[] p;",wh:"Chương trình chạy dài hạn C/C++",wr:"Heap allocation",tp:"Smart pointer, valgrind hoặc language có GC"},
+{w:"Binary Search",ts:"Tìm kiếm nhị phân",df:"Tìm trong mảng đã sắp xếp bằng cách chia đôi liên tục. O(log n).",c:"algo",ex:"while(lo <= hi){ mid = (lo+hi)/2; ... }",wh:"Tìm kiếm trên mảng đã sắp xếp",wr:"Lower_bound, upper_bound",tp:"mid = lo + (hi-lo)/2 tránh tràn số"},
+{w:"BFS / DFS",ts:"Tìm kiếm đồ thị",df:"BFS dùng queue, duyệt từng tầng. DFS dùng stack/recursion, đi sâu đến cùng.",c:"algo",ex:"queue<int> q; q.push(start); // BFS",wh:"Duyệt đồ thị, tìm đường",wr:"Game AI, maze solver",tp:"BFS tìm đường ngắn nhất (unweighted)"},
+{w:"JWT",ts:"Token xác thực",df:"JSON Web Token. Chuỗi mã hóa chứa thông tin user, xác thực không cần session.",c:"web",ex:"Authorization: Bearer eyJhbG...",wh:"Xác thực user giữa các service",wr:"Header Authorization: Bearer <token>",tp:"Đặt expiration ngắn; refresh token riêng"},
+{w:"WebSocket",ts:"Kênh giao tiếp 2 chiều",df:"Giữ kết nối liên tục giữa client-server để truyền data real-time.",c:"web",ex:"const ws = new WebSocket('wss://...');",wh:"Real-time chat, game, notification",wr:"Thay thế polling",tp:"Quản lý reconnect khi mạng yếu"},
+{w:"CI/CD",ts:"Tích hợp & triển khai tự động",df:"Tự động test, build và deploy khi push code.",c:"git",ex:"# .github/workflows/main.yml",wh:"Tự động hóa test và deploy",wr:"GitHub Actions, GitLab CI",tp:"Chạy unit test trước khi merge"},
+{w:"Design Pattern",ts:"Mẫu thiết kế",df:"Lời giải đã được chứng minh cho các vấn đề thiết kế phổ biến.",c:"ai",ex:"class Singleton { static Singleton* instance; };",wh:"Gặp vấn đề đã có lời giải chuẩn",wr:"OOP software architecture",tp:"Singleton, Factory, Observer"},
+{w:"Clean Code",ts:"Code sạch",df:"Code viết cho người đọc, không phải máy. Rõ ràng, đơn giản, không lặp lại.",c:"ai",ex:"// Không: process(a,b,c)\n// Có: createInvoice(data)",wh:"Mọi dòng code bạn viết",wr:"Mọi chỗ",tp:"Tên biến nói lên ý định; hàm ngắn"},
+{w:"Decorator (Python)",ts:"Trang trí hàm",df:"Mở rộng hàm không sửa code gốc. Dùng cho logging, xác thực, cache.",c:"py",ex:"@cache\ndef fibo(n): ...",wh:"Mở rộng hàm không sửa gốc",wr:"Trên định nghĩa hàm",tp:"@functools.wraps để giữ metadata"},
+{w:"HTML",ts:"Bộ xương trang web",df:"HyperText Markup Language. Dùng các thẻ để khai báo tiêu đề, đoạn văn, ảnh.",c:"web",ex:"<h1>Xin chao</h1>",wh:"Xây dựng cấu trúc trang web",wr:"File .html, template engine",tp:"Dùng thẻ semantic để SEO tốt"},
+{w:"CSS",ts:"Trang điểm cho web",df:"Cascading Style Sheets. Định màu sắc, font chữ, khoảng cách, bố cục.",c:"web",ex:"h1 { color: red; font-size: 24px; }",wh:"Thiết kế giao diện, responsive",wr:"File .css hoặc <style>",tp:"CSS variables cho theme; mobile-first"},
+{w:"JavaScript",ts:"Linh hồn web",df:"Ngôn ngữ lập trình chạy trên trình duyệt. Làm web sống động.",c:"web",ex:"alert('Hello!');",wh:"Tương tác người dùng, gọi API",wr:"File .js, Node.js backend",tp:"Hiểu event loop, async/await; dùng ==="},
+{w:"Struct (C/C++)",ts:"Gói dữ liệu",df:"Gom nhiều biến có kiểu khác nhau thành một kiểu dữ liệu mới.",c:"c,cpp",ex:"struct SV { char ten[50]; int tuoi; };",wh:"Gom nhóm dữ liệu liên quan",wr:"C/C++ định nghĩa kiểu dữ liệu",tp:"C++ struct khác class ở default public"},
+{w:"malloc / free",ts:"Thuê & Trả phòng (C)",df:"malloc thuê một vùng nhớ. free trả lại. Quên free = memory leak.",c:"c",ex:"int *p = (int*)malloc(5*sizeof(int));\nfree(p);",wh:"Cần bộ nhớ động trong C",wr:"Heap memory allocation",tp:"Mỗi malloc phải có 1 free; dùng valgrind"},
+{w:"Inheritance (Kế thừa)",ts:"Thừa hưởng tài sản",df:"Con class lấy hết đặc điểm của cha class, rồi thêm hoặc sửa cho riêng mình.",c:"all",ex:"class Cho(DongVat): ...",wh:"IS-A relationship",wr:"Khai báo class con kế thừa cha",tp:"Composition over inheritance"},
+{w:"REST API",ts:"API chuẩn REST",df:"Kiến trúc API dùng HTTP methods (GET/POST/PUT/DELETE) tương ứng CRUD, stateless.",c:"web",ex:"GET /api/products\nPOST /api/products",wh:"Thiết kế backend cho frontend/mobile",wr:"Server routes",tp:"Dùng đúng method; trả mã lỗi phù hợp"},
+{w:"NoSQL",ts:"Database phi quan hệ",df:"Lưu dữ liệu linh hoạt không cần schema cố định. Scale ngang tốt.",c:"web",ex:'db.users.insertOne({name:"Phuc",age:20});',wh:"Dữ liệu phi cấu trúc, linh hoạt schema",wr:"MongoDB, Redis, DynamoDB",tp:"Mongo cho document; Redis cho cache"},
+{w:"Scope (Phạm vi)",ts:"Vùng trời của biến",df:"Biến chỉ tồn tại trong block {} hoặc hàm được khai báo. Ra ngoài là mất.",c:"all",ex:"if(true){ int x=5; }\n// x đã chết",wh:"Kiểm soát vòng đời biến",wr:"Block, hàm, class, module",tp:"Biến càng local càng tốt"},
+{w:"Template (C++)",ts:"Khuôn đa kiểu",df:"Hàm/class hoạt động với nhiều kiểu dữ liệu khác nhau. Viết 1 lần, dùng cho tất cả.",c:"cpp",ex:"template <typename T>\nT maxVal(T a, T b){ return (a>b)?a:b; }",wh:"Hàm/class cần hoạt động với nhiều kiểu",wr:"Khai báo trước hàm/class",tp:"C++ STL vector, map đều dùng template"},
+{w:"Git & GitHub",ts:"Quản lý phiên bản",df:"Git theo dõi lịch sử code. GitHub lưu trữ online. Cỗ máy thời gian của developer!",c:"git",ex:"git add .\ngit commit -m 'Add feature'\ngit push origin main",wh:"Mọi project lập trình",wr:"Terminal hoặc GitHub Desktop",tp:"Commit nhỏ, thường xuyên, message rõ ràng"},
+{w:"Enum",ts:"Liệt kê hằng số",df:"Tập hợp các hằng số có tên, có ý nghĩa. Thay vì dùng số ma thuật 0,1,2.",c:"c,cpp,py",ex:"enum class Color { Red, Green, Blue };",wh:"Tập hợp hằng số liên quan",wr:"Định nghĩa kiểu dữ liệu",tp:"C++: dùng enum class thay enum để type-safe"},
+];
+ 
+function escH(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+const tMap={c:'tc',cpp:'tcp',py:'tp',web:'tw',all:'ta',git:'tg',ai:'tai',algo:'talg'};
+const txMap={c:'C',cpp:'C++',py:'PYTHON',web:'WEB/JS',git:'GIT/DEV',all:'CORE',algo:'ALGO/DS',ai:'CONCEPT'};
+ 
+function rv(filter){
+  const g=document.getElementById('vocabGrid');g.innerHTML='';
+  vd.forEach(item=>{
+    const tags=item.c.split(',');
+    if(filter!=='all'&&!tags.includes(filter)) return;
+    const ft=tags[0];
+    const d=document.createElement('div');d.className='vc';
+    let ex=item.ex?`<div class="mc">${escH(item.ex)}</div>`:'';
+    let meta='<div class="vm">';
+    if(item.wh) meta+=`<div class="vmi vw"><strong>🎯 Khi nào:</strong> <span style="color:var(--td)">${item.wh}</span></div>`;
+    if(item.wr) meta+=`<div class="vmi vwh"><strong>📍 Đặt ở đâu:</strong> <span style="color:var(--td)">${item.wr}</span></div>`;
+    if(item.tp) meta+=`<div class="vmi vtp"><strong>💡 Mẹo:</strong> <span style="color:var(--td)">${item.tp}</span></div>`;
+    meta+='</div>';
+    d.innerHTML=`<div class="vtr"><span class="vt ${tMap[ft]||'ta'}">${txMap[ft]||ft.toUpperCase()}</span></div><h3>${item.w}</h3><span class="vts">${item.ts}</span><p>${item.df}</p>${meta}${ex}`;
+    g.appendChild(d);
+  });
+}
+function fv(t,el){
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');rv(t);
+}
+ 
+// ==================== TAB SWITCH ====================
+function sw(id,el){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+  if(id==='studio') setTimeout(()=>{rTree();rfPrev();},80);
+  if(id==='website') setTimeout(()=>initWs(),50);
+  if(id==='excel') setTimeout(()=>initExcel(),50);
+  if(id==='codeblocks') setTimeout(()=>initCb(),50);
+  if(id==='aichat') setTimeout(()=>document.getElementById('chatInput')?.focus(),100);
+}
+function sgp(id,el){
+  document.querySelectorAll('.gnb').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.gp').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active');document.getElementById(id).classList.add('active');
+}
+ 
+// ==================== CODE LAB ====================
+let curEx=null,exC=0;
+function r(a,b){return Math.floor(Math.random()*(b-a+1))+a}
+function fib(n){if(n<=1)return n;let a=0,b=1;for(let i=1;i<n;i++){[a,b]=[b,a+b]}return b}
+function sieve(n){const s=Array(n+1).fill(true);s[0]=s[1]=false;for(let i=2;i*i<=n;i++)if(s[i])for(let j=i*i;j<=n;j+=i)s[j]=false;return s.map((v,i)=>v?i:-1).filter(x=>x>0)}
+function gcd(a,b){while(b){[a,b]=[b,a%b]}return a}
+function fact(n){let f=1;for(let i=2;i<=n;i++)f*=i;return f}
+ 
+const exPy={
+  beginner:[
+    ()=>({t:"Hello World",d:"In ra: Hello World",s:'print("Hello World")',e:"Hello World",h:"Dùng print() với chuỗi"}),
+    ()=>{const a=r(1,20),b=r(1,20);return{t:`Tính ${a}+${b}`,d:`In ra tổng của ${a} và ${b}`,s:`a=${a}\nb=${b}\nprint(a+b)`,e:`${a+b}`,h:"Dùng phép +"}},
+    ()=>{const a=r(2,12),b=r(2,12);return{t:`Tích ${a}×${b}`,d:`In ra ${a}×${b}`,s:`print(${a}*${b})`,e:`${a*b}`,h:"Dùng phép *"}},
+    ()=>{const n=r(5,99);return{t:`${n} chẵn hay lẻ?`,d:`In 'Chan' hoặc 'Le' cho số ${n}`,s:`n=${n}\nprint('Chan' if n%2==0 else 'Le')`,e:n%2===0?'Chan':'Le',h:"Dùng toán tử %"}},
+    ()=>{const lo=r(1,5),hi=r(lo+3,lo+10);const s=(lo+hi)*(hi-lo+1)/2;return{t:`Tổng từ ${lo} đến ${hi}`,d:`Tính tổng từ ${lo} đến ${hi}`,s:`total=sum(range(${lo},${hi+1}))\nprint(total)`,e:`${s}`,h:`range(${lo},${hi+1}) đi từ ${lo} đến ${hi}`}},
+  ],
+  intermediate:[
+    ()=>{const n=r(4,10);return{t:`Fibonacci thứ ${n}`,d:`In số Fibonacci thứ ${n} (0,1,1,2,3,5...)`,s:`def fib(n):\n    if n<=1: return n\n    a,b=0,1\n    for _ in range(n-1):\n        a,b=b,a+b\n    return b\nprint(fib(${n}))`,e:`${fib(n)}`,h:"Cập nhật a,b=b,a+b trong vòng lặp"}},
+    ()=>{const lst=[...Array(5)].map(()=>r(1,20));return{t:"Tìm max trong list",d:`Cho list ${JSON.stringify(lst)}. In ra max.`,s:`lst=${JSON.stringify(lst)}\nprint(max(lst))`,e:`${Math.max(...lst)}`,h:"Dùng hàm max()"}},
+    ()=>{const s=["hello","world","python","code"][Math.floor(Math.random()*4)];return{t:`Đảo chuỗi "${s}"`,d:`In chuỗi "${s}" đảo ngược`,s:`s="${s}"\nprint(s[::-1])`,e:s.split('').reverse().join(''),h:"Dùng slice [::-1]"}},
+    ()=>{const n=r(3,6);const exp=[...Array(n)].map((_,i)=>'*'.repeat(i+1)).join('\n');return{t:`Tam giác sao ${n} hàng`,d:`In tam giác sao ${n} hàng`,s:`for i in range(1,${n+1}):\n    print('*'*i)`,e:exp,h:"print('*'*i) in i dấu sao"}},
+  ],
+  advanced:[
+    ()=>{const n=r(5,15);return{t:`Sàng nguyên tố ≤ ${n}`,d:`In tất cả số nguyên tố ≤ ${n}`,s:`n=${n}\ns=[True]*(n+1)\ns[0]=s[1]=False\nfor i in range(2,int(n**.5)+1):\n    if s[i]:\n        for j in range(i*i,n+1,i):\n            s[j]=False\nprint([i for i,v in enumerate(s) if v])`,e:JSON.stringify(sieve(n)),h:"Đánh dấu bội số"}},
+    ()=>{const lst=[...Array(r(4,6))].map(()=>r(1,25));return{t:"Sắp xếp nổi bọt",d:`Sắp xếp ${JSON.stringify(lst)} tăng dần`,s:`a=${JSON.stringify(lst)}\nfor i in range(len(a)-1):\n    for j in range(len(a)-i-1):\n        if a[j]>a[j+1]:\n            a[j],a[j+1]=a[j+1],a[j]\nprint(a)`,e:JSON.stringify([...lst].sort((a,b)=>a-b)),h:"So sánh 2 phần tử kề nhau"}},
+  ],
+  math:[
+    ()=>{const a=r(2,9),b=r(2,9);return{t:`${a}² + ${b}²`,d:`Tính ${a}² + ${b}²`,s:`a=${a}\nb=${b}\nprint(a**2 + b**2)`,e:`${a*a+b*b}`,h:`Dùng ** để lũy thừa`}},
+    ()=>{const a=r(5,30);return{t:`√${a*a} = ?`,d:`Tính căn bậc 2 của ${a*a}`,s:`import math\nprint(int(math.sqrt(${a*a})))`,e:`${a}`,h:"import math rồi dùng math.sqrt()"}},
+    ()=>{const a=r(2,10)*3,b=r(2,10)*3;return{t:`UCLN(${a}, ${b})`,d:`Tìm ước chung lớn nhất của ${a} và ${b}`,s:`import math\nprint(math.gcd(${a},${b}))`,e:`${gcd(a,b)}`,h:"import math rồi dùng math.gcd()"}},
+    ()=>{const n=r(4,8);return{t:`Giai thừa ${n}!`,d:`Tính ${n}!`,s:`result=1\nfor i in range(1,${n+1}):\n    result*=i\nprint(result)`,e:`${fact(n)}`,h:"Nhân tích lũy từ 1 đến n"}},
+  ],
+  expert:[
+    ()=>({t:"Palindrome",d:"Kiểm tra 'racecar' có đối xứng không",s:"s='racecar'\nprint(s==s[::-1])",e:"True",h:"Slicing [::-1] đảo chuỗi"}),
+    ()=>({t:"LIS - Dãy con tăng dài nhất",d:"Cho [10,9,2,5,3,7,101,18]. In độ dài LIS.",s:"nums=[10,9,2,5,3,7,101,18]\ndp=[1]*len(nums)\nfor i in range(len(nums)):\n    for j in range(i):\n        if nums[i]>nums[j]:\n            dp[i]=max(dp[i],dp[j]+1)\nprint(max(dp))",e:"4",h:"dp[i] = độ dài LIS kết thúc tại i"}),
+  ],
+};
+const exC2={
+  beginner:[
+    ()=>({t:"Hello World",d:"In ra: Hello World",s:"#include <stdio.h>\nint main() {\n    printf(\"Hello World\");\n    return 0;\n}",e:"Hello World",h:"Dùng printf",ck:{inc:["stdio.h","printf"],req:["return 0;"]}}),
+    ()=>{const a=r(1,50),b=r(1,50);return{t:`${a}+${b} trong C`,d:`In tổng ${a}+${b}`,s:`#include <stdio.h>\nint main() {\n    printf("%d", ${a}+${b});\n    return 0;\n}`,e:`${a+b}`,h:"printf(\"%d\", ...)",ck:{inc:["stdio.h"],req:["printf"]}}},
+  ],
+  math:[
+    ()=>{const a=r(2,10),b=r(2,10);return{t:`${a}²+${b}²`,d:`Tính ${a}²+${b}² trong C`,s:`#include <stdio.h>\nint main() {\n    printf("%d", ${a}*${a} + ${b}*${b});\n    return 0;\n}`,e:`${a*a+b*b}`,h:"Dùng a*a thay pow()",ck:{inc:["stdio.h"],req:["printf"]}}},
+    ()=>{const n=r(2,7);return{t:`Giai thừa ${n}! trong C`,d:`Tính ${n}!`,s:`#include <stdio.h>\nint main() {\n    int n=${n}, f=1;\n    for(int i=1;i<=n;i++) f*=i;\n    printf("%d", f);\n    return 0;\n}`,e:`${fact(n)}`,h:"Nhân tích lũy",ck:{inc:["stdio.h"],req:["for","printf"]}}},
+  ],
+};
+ 
+function onLC(){const m={c:'main.c',cpp:'main.cpp',python:'main.py'};document.getElementById('edLang').innerText=m[document.getElementById('langSelect').value]}
+function genEx(){
+  const lang=document.getElementById('langSelect').value;
+  const lv=document.getElementById('levelSelect').value;
+  exC++;
+  let pool;
+  if(lang==='python') pool=exPy[lv==='math'?'math':lv]||exPy.beginner;
+  else pool=exC2[lv==='math'?'math':'beginner']||exC2.beginner;
+  const gen=pool[Math.floor(Math.random()*pool.length)];
+  const ex=gen();
+  curEx={...ex,lang,lv};
+  document.getElementById('exerciseBox').style.display='block';
+  document.getElementById('exLang').innerText=lang.toUpperCase();
+  document.getElementById('exLv').innerText=lv.toUpperCase();
+  document.getElementById('exNum').innerText=exC;
+  document.getElementById('exTitle').innerText=ex.t;
+  document.getElementById('exDesc').innerText=ex.d;
+  document.getElementById('exHint').innerText=ex.h;
+  document.getElementById('codeEditor').value=ex.s||'';
+  document.getElementById('output').innerText='Sẵn sàng...';
+  document.getElementById('aiBox').classList.add('hidden');
+}
+function resCode(){
+  document.getElementById('codeEditor').value=curEx?(curEx.s||''):'';
+  document.getElementById('output').innerText='Đã reset.';
+  document.getElementById('aiBox').classList.add('hidden');
+}
+function outf(t){const o=document.getElementById('output');if(o.innerText==='Sẵn sàng...'||o.innerText==='_') o.innerText='';o.innerText+=t;}
+function bRead(x){if(window.Sk&&Sk.builtinFiles&&Sk.builtinFiles["files"][x]) return Sk.builtinFiles["files"][x];throw "File not found: '"+x+"'";}
+function showAI(msg,type){const b=document.getElementById('aiBox'),t=document.getElementById('aiText');b.className='ar '+(type||'');t.innerHTML=msg;b.classList.remove('hidden');}
+function runCode(){
+  const lang=document.getElementById('langSelect').value;
+  const code=document.getElementById('codeEditor').value;
+  document.getElementById('output').innerText='';
+  if(!curEx){showAI("Hãy nhấn <b>AI Tạo Bài Tập</b> trước nhé!","warn");return;}
+  if(lang==='python') runPy(code);
+  else analyzeC(code,lang);
+}
+function runPy(code){
+  document.getElementById('output').innerText='';
+  if(!window.Sk){
+    // Fallback: eval basic Python-like
+    document.getElementById('output').innerText='[Skulpt not loaded]\nChạy Python cần kết nối internet.';
+    showAI("⚠️ Skulpt chưa tải. Kiểm tra kết nối internet và thử lại.","warn");
+    return;
+  }
+  Sk.configure({output:outf,read:bRead,execLimit:8000});
+  Sk.misceval.asyncToPromise(()=>Sk.importMainWithBody("<stdin>",false,code,true)).then(()=>{
+    const raw=document.getElementById('output').innerText.trim();
+    const exp=(curEx.e||'').trim();
+    if(exp&&raw===exp) showAI(`🎉 <strong>Tuyệt vời!</strong> Output chính xác!<br>📟 <code>${escH(raw)}</code>`,"success");
+    else if(exp&&raw!==exp) showAI(`⚠️ Chưa đúng.<br>Của bạn: <code>${escH(raw)}</code><br>Mong đợi: <code>${escH(exp)}</code><br>💡 ${curEx.h}`,"warn");
+    else showAI(`✅ Chạy thành công.<br><code>${escH(raw||'(không có output)')}</code>`,"");
+  },err=>{
+    let msg=err.toString();
+    if(msg.includes("NameError")) msg="❌ NameError: Dùng tên biến/hàm chưa định nghĩa!";
+    else if(msg.includes("IndentationError")) msg="❌ IndentationError: Sai thụt lề! Python rất nhạy cảm.";
+    else if(msg.includes("SyntaxError")) msg="❌ SyntaxError: Thiếu dấu ngoặc hoặc sai cú pháp.";
+    else if(msg.includes("ZeroDivisionError")) msg="❌ ZeroDivisionError: Chia cho 0!";
+    showAI(`<b>Lỗi:</b><br><code>${escH(msg)}</code>`,"error");
+  });
+}
+function analyzeC(code,lang){
+  const ck=curEx.ck||{};let sc=0;const fb=[];
+  if(ck.inc) ck.inc.forEach(i=>{if(code.includes(i)) sc+=12;else fb.push(`• Thiếu <code>${escH(i)}</code>`)});
+  if(ck.req) ck.req.forEach(r=>{if(code.includes(r)) sc+=10;else fb.push(`• Cần có <code>${escH(r)}</code>`)});
+  if(!code.toLowerCase().includes('int main')) fb.push("• Thiếu <code>int main()</code>"); else sc+=10;
+  if(!code.includes('return 0;')) fb.push("• Nên có <code>return 0;</code>"); else sc+=8;
+  let html='';
+  if(sc>=80) html=`🌟 Rất tốt! Điểm: <b>${sc}/100</b>. Copy vào IDE để chạy thực tế.<br>💡 ${curEx.h}`;
+  else if(sc>=40) html=`🛠️ Cần chỉnh! Điểm: <b>${sc}/100</b>.<br>${fb.join('<br>')}<br>💡 ${curEx.h}`;
+  else html=`❌ Chưa đạt! Điểm: <b>${sc}/100</b>.<br>${fb.join('<br>')}`;
+  showAI(html,sc>=80?"success":sc>=40?"warn":"error");
+  document.getElementById('output').innerText=`[${lang.toUpperCase()}]\nĐiểm: ${sc}/100\n${fb.map(s=>s.replace(/<[^>]+>/g,'')).join('\n')}`;
+}
+ 
+// ==================== GAMES ====================
+// SNAKE
+const snC=document.getElementById('snakeCanvas'),snX=snC.getContext('2d');
+let snk,fd,sDir,nDir,sLp,sSc,sSp;
+function startSnake(){if(sLp)clearInterval(sLp);snk=[{x:9,y:9}];sDir='RIGHT';nDir='RIGHT';sSc=0;sSp=140;spFd();document.getElementById('snakeScore').innerText=0;sLp=setInterval(snLoop,sSp);}
+function pauseSnake(){if(sLp){clearInterval(sLp);sLp=null;}else sLp=setInterval(snLoop,sSp);}
+function spFd(){fd={x:Math.floor(Math.random()*17),y:Math.floor(Math.random()*17)};}
+function snLoop(){
+  sDir=nDir;let h={...snk[0]};
+  if(sDir==='RIGHT') h.x++;if(sDir==='LEFT') h.x--;if(sDir==='UP') h.y--;if(sDir==='DOWN') h.y++;
+  if(h.x<0||h.x>=17||h.y<0||h.y>=17||snk.some(s=>s.x===h.x&&s.y===h.y)){clearInterval(sLp);sLp=null;setTimeout(()=>alert('💀 Game Over! Điểm: '+sSc),50);return;}
+  snk.unshift(h);
+  if(h.x===fd.x&&h.y===fd.y){sSc+=10;document.getElementById('snakeScore').innerText=sSc;spFd();if(sSp>55)sSp-=4;clearInterval(sLp);sLp=setInterval(snLoop,sSp);}
+  else snk.pop();
+  snX.fillStyle='#070d1f';snX.fillRect(0,0,270,270);
+  snX.fillStyle='#22c55e';snk.forEach(s=>snX.fillRect(s.x*15+1,s.y*15+1,13,13));
+  snX.fillStyle='#ef4444';snX.beginPath();snX.arc(fd.x*15+7.5,fd.y*15+7.5,5.5,0,Math.PI*2);snX.fill();
+}
+document.addEventListener('keydown',e=>{
+  if(['ArrowUp','w'].includes(e.key)&&sDir!=='DOWN') nDir='UP';
+  if(['ArrowDown','s'].includes(e.key)&&sDir!=='UP') nDir='DOWN';
+  if(['ArrowLeft','a'].includes(e.key)&&sDir!=='RIGHT') nDir='LEFT';
+  if(['ArrowRight','d'].includes(e.key)&&sDir!=='LEFT') nDir='RIGHT';
+});
+// MEMORY
+let mCards=[],mFlipped=[],mMatched=0,mMoves=0;
+function initMemory(){
+  const icons=['🚀','💻','🐍','⚡','🔥','🤖','🎯','🐼'];
+  const deck=[...icons,...icons].sort(()=>Math.random()-.5);
+  const g=document.getElementById('memoryGrid');g.innerHTML='';
+  mCards=deck.map((ic,i)=>({ic,i,el:null}));mFlipped=[];mMatched=0;mMoves=0;
+  document.getElementById('memoryMoves').innerText=0;
+  mCards.forEach((c,idx)=>{
+    const el=document.createElement('div');el.className='mgc';el.innerText='❓';
+    el.onclick=()=>flipMem(idx);c.el=el;g.appendChild(el);
+  });
+}
+function flipMem(idx){
+  if(mFlipped.length>=2) return;
+  if(mCards[idx].el.classList.contains('matched')||mFlipped.includes(idx)) return;
+  const c=mCards[idx];c.el.innerText=c.ic;c.el.classList.add('flipped');mFlipped.push(idx);
+  if(mFlipped.length===2){mMoves++;document.getElementById('memoryMoves').innerText=mMoves;
+    const[a,b]=mFlipped;
+    if(mCards[a].ic===mCards[b].ic){mCards[a].el.classList.add('matched');mCards[b].el.classList.add('matched');mFlipped=[];mMatched+=2;if(mMatched===16)setTimeout(()=>alert('🎉 Chiến thắng! Lượt: '+mMoves),300);}
+    else setTimeout(()=>{mCards[a].el.innerText='❓';mCards[a].el.classList.remove('flipped');mCards[b].el.innerText='❓';mCards[b].el.classList.remove('flipped');mFlipped=[];},800);
+  }
+}
+// MATH
+let mSc2=0,mTm,mAns;
+function startMath(){
+  mSc2=0;let tl=30;document.getElementById('mathSc').innerText=0;document.getElementById('mathTm').innerText=30;
+  clearInterval(mTm);
+  mTm=setInterval(()=>{tl--;document.getElementById('mathTm').innerText=tl;if(tl<=0){clearInterval(mTm);genMath(true);}else genMath();},1500);
+  genMath();
+}
+function genMath(ended){
+  if(ended){document.getElementById('mathQ').innerText='⏰ Hết giờ! Điểm: '+mSc2;document.getElementById('mathChoices').innerHTML='';return;}
+  const ops=['+','-','×'];const op=ops[Math.floor(Math.random()*3)];
+  let a=r(2,20),b=r(2,10),ans;
+  if(op==='+') ans=a+b;else if(op==='-'){if(a<b)[a,b]=[b,a];ans=a-b;}else{a=r(2,12);b=r(2,9);ans=a*b;}
+  mAns=ans;
+  document.getElementById('mathQ').innerText=`${a} ${op} ${b} = ?`;
+  const ch=[ans,ans+r(1,5),ans-r(1,4),ans+r(6,12)].sort(()=>Math.random()-.5);
+  const cd=document.getElementById('mathChoices');cd.innerHTML='';
+  ch.forEach(c=>{
+    const btn=document.createElement('button');btn.innerText=c;
+    btn.style.cssText='padding:9px 18px;border-radius:9px;font-size:.97rem;min-width:58px;background:rgba(30,41,59,.8);border:1px solid var(--bo);color:var(--tx)';
+    btn.onclick=()=>{
+      if(c===mAns){mSc2++;document.getElementById('mathSc').innerText=mSc2;btn.style.background='rgba(34,197,94,.3)';btn.style.borderColor='#22c55e';}
+      else{btn.style.background='rgba(239,68,68,.3)';btn.style.borderColor='#ef4444';}
+      cd.querySelectorAll('button').forEach(b=>b.disabled=true);
+    };cd.appendChild(btn);
+  });
+}
+// BRICK BREAKER
+const bkC=document.getElementById('brickCanvas'),bkX=bkC.getContext('2d');
+let bkX2=135,bkY=155,bkDX=2.5,bkDY=-2.5,bkPX=100,bkBr=[],bkSc=0,bkRun=false,bkAF;
+function initBr(){bkBr=[];for(let r2=0;r2<3;r2++) for(let c=0;c<7;c++) bkBr.push({x:c*36+4,y:r2*17+8,w:32,h:13,alive:true});}
+function startBrick(){if(bkAF)cancelAnimationFrame(bkAF);bkX2=135;bkY=150;bkDX=2.5;bkDY=-2.5;bkPX=100;bkSc=0;bkRun=true;document.getElementById('brickScore').innerText=0;initBr();bkLoop();}
+function resetBrick(){bkRun=false;if(bkAF)cancelAnimationFrame(bkAF);initBr();bkDraw();}
+function bkLoop(){
+  if(!bkRun) return;
+  bkX.clearRect(0,0,270,195);
+  bkBr.forEach(b=>{if(!b.alive)return;bkX.fillStyle='#3b82f6';bkX.fillRect(b.x,b.y,b.w,b.h);bkX.strokeStyle='#1e40af';bkX.strokeRect(b.x,b.y,b.w,b.h);});
+  bkX.fillStyle='#06b6d4';bkX.fillRect(bkPX,183,52,7);
+  bkX.beginPath();bkX.arc(bkX2,bkY,6.5,0,Math.PI*2);bkX.fillStyle='#f59e0b';bkX.fill();
+  bkX2+=bkDX;bkY+=bkDY;
+  if(bkX2<7||bkX2>263) bkDX=-bkDX;
+  if(bkY<7) bkDY=-bkDY;
+  if(bkY>178&&bkX2>bkPX&&bkX2<bkPX+52) bkDY=-bkDY;
+  if(bkY>195){bkRun=false;alert('💀 Game Over! Điểm: '+bkSc);return;}
+  bkBr.forEach(b=>{if(!b.alive)return;if(bkX2>b.x&&bkX2<b.x+b.w&&bkY>b.y&&bkY<b.y+b.h){b.alive=false;bkDY=-bkDY;bkSc+=10;document.getElementById('brickScore').innerText=bkSc;}});
+  if(bkBr.every(b=>!b.alive)){alert('🎉 Chiến thắng! Điểm: '+bkSc);bkRun=false;return;}
+  bkAF=requestAnimationFrame(bkLoop);
+}
+function bkDraw(){bkX.clearRect(0,0,270,195);initBr();bkBr.forEach(b=>{bkX.fillStyle='#3b82f6';bkX.fillRect(b.x,b.y,b.w,b.h);});}
+document.addEventListener('mousemove',e=>{const r2=bkC.getBoundingClientRect();bkPX=e.clientX-r2.left-26;if(bkPX<0)bkPX=0;if(bkPX>218)bkPX=218;});
+// TYPING
+const tyS=["def hello(name): return f'Xin chao {name}'","for i in range(10): print(i * i)","if score >= 8.5: print('Gioi')","const float PI = 3.14159;","cout << 'Hello' << endl;","vector<int> v = {1,2,3,4,5};","function add(a,b){ return a + b; }","print([x**2 for x in range(10)])","int main(){ return 0; }"];
+let tyTgt="",tyStart=0,tyIv;
+function startTyping(){
+  tyTgt=tyS[Math.floor(Math.random()*tyS.length)];let tl=60;
+  document.getElementById('typingInput').value='';document.getElementById('typingInput').disabled=false;document.getElementById('typingInput').focus();
+  renderTy();document.getElementById('wpmStat').innerText='0';document.getElementById('accStat').innerText='100%';document.getElementById('timeStat').innerText='60';
+  tyStart=Date.now();clearInterval(tyIv);
+  tyIv=setInterval(()=>{tl--;document.getElementById('timeStat').innerText=tl;if(tl<=0){clearInterval(tyIv);document.getElementById('typingInput').disabled=true;alert('⏰ WPM: '+document.getElementById('wpmStat').innerText);}},1000);
+}
+function renderTy(){
+  const b=document.getElementById('typingBox'),v=document.getElementById('typingInput').value;let h='';
+  for(let i=0;i<tyTgt.length;i++){
+    let cl='';if(i<v.length) cl=v[i]===tyTgt[i]?'correct':'wrong';else if(i===v.length) cl='active';
+    h+=`<span class="${cl}">${tyTgt[i]===' '?'&nbsp;':escH(tyTgt[i])}</span>`;
+  }
+  b.innerHTML=h;
+}
+function checkTyping(){
+  const v=document.getElementById('typingInput').value;renderTy();
+  let ok=0;for(let i=0;i<v.length;i++) if(v[i]===tyTgt[i]) ok++;
+  const acc=v.length?Math.round(ok/v.length*100):100;
+  const el=(Date.now()-tyStart)/60000;const wpm=el>0?Math.round(v.length/5/el):0;
+  document.getElementById('wpmStat').innerText=wpm;document.getElementById('accStat').innerText=acc+'%';
+  if(v===tyTgt){clearInterval(tyIv);document.getElementById('typingInput').disabled=true;setTimeout(()=>alert('🎉 WPM: '+wpm+' | Chính xác: '+acc+'%'),100);}
+}
+// QUIZ
+const qData=[
+  {q:"Python dùng hàm nào để in ra màn hình?",a:["print()","echo()","console.log()","write()"],c:0},
+  {q:"Kiểu dữ liệu lưu số thực (có dấu phẩy)?",a:["int","float","string","bool"],c:1},
+  {q:"Toán tử % trong lập trình có nghĩa là?",a:["Phần trăm","Chia lấy dư","Lũy thừa","Chia bình thường"],c:1},
+  {q:"Vòng lặp nào dùng khi KHÔNG biết trước số lần?",a:["for","while","do-while","foreach"],c:1},
+  {q:"Trong C, khai báo mảng 5 phần tử số nguyên?",a:["int a[5];","array a = 5;","int a = [5];","a[5] = int;"],c:0},
+  {q:"Python dùng gì để phân khối lệnh thay vì {}?",a:["Dấu ngoặc ()","Thụt đầu dòng (indent)","Dấu chấm phẩy ;","Dấu phẩy ,"],c:1},
+  {q:"Git commit dùng để làm gì?",a:["Xóa code","Lưu checkpoint code","Chạy code","Compile code"],c:1},
+  {q:"O(1) trong Big O Notation có nghĩa là?",a:["Chậm nhất","Thời gian hằng số (nhanh nhất)","Tuyến tính","Bình phương"],c:1},
+  {q:"Kế thừa (Inheritance) trong OOP là?",a:["Che giấu dữ liệu","Con class lấy đặc điểm của cha","Hàm gọi lại chính nó","Nhiều hình thái"],c:1},
+  {q:"Từ khóa nào thoát khỏi vòng lặp ngay lập tức?",a:["continue","return","exit","break"],c:3},
+  {q:"Stack là cấu trúc dữ liệu theo nguyên tắc?",a:["FIFO","LIFO","Ngẫu nhiên","Theo thứ tự"],c:1},
+  {q:"Docker dùng để làm gì?",a:["Viết code","Đóng gói app + môi trường","Vẽ thiết kế","Quản lý database"],c:1},
+];
+let qIdx=0,qSc=0;
+function startQuiz(){qIdx=0;qSc=0;document.getElementById('quizSc').innerText=0;document.getElementById('quizN').innerText=0;showQ();}
+function showQ(){
+  if(qIdx>=10){document.getElementById('quizQ').innerText='🎉 Hoàn thành! Điểm: '+qSc+'/10';document.getElementById('quizC').innerHTML='';return;}
+  const q=qData[qIdx%qData.length];document.getElementById('quizN').innerText=qIdx+1;document.getElementById('quizQ').innerText=q.q;
+  const d=document.getElementById('quizC');d.innerHTML='';
+  q.a.forEach((a,i)=>{
+    const btn=document.createElement('button');btn.innerText=a;
+    btn.style.cssText='text-align:left;padding:7px 13px;border-radius:7px;font-size:.87rem;background:rgba(30,41,59,.6);border:1px solid var(--bo);color:var(--tx);width:100%;cursor:pointer';
+    btn.onclick=()=>{
+      if(i===q.c){qSc++;document.getElementById('quizSc').innerText=qSc;btn.style.background='rgba(34,197,94,.2)';btn.style.borderColor='#22c55e';}
+      else{btn.style.background='rgba(239,68,68,.18)';btn.style.borderColor='#ef4444';d.querySelectorAll('button')[q.c].style.background='rgba(34,197,94,.18)';}
+      d.querySelectorAll('button').forEach(b=>b.disabled=true);
+      qIdx++;setTimeout(showQ,1100);
+    };d.appendChild(btn);
+  });
+}
+ 
+// ==================== WEBSITE ====================
+let wsDb;
+const dhHtml=`<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Website</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 Hello World!</h1>
+    <p>Website đầu tiên của tôi 🎉</p>
+    <button onclick="sayHi()">Click me!</button>
+  </div>
+  <script src="script.js"><\/script>
+</body>
+</html>`;
+const dhCss=`body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.container {
+  background: rgba(255,255,255,.15);
+  backdrop-filter: blur(12px);
+  padding: 40px;
+  border-radius: 24px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 20px 50px rgba(0,0,0,.3);
+}
+h1 { font-size: 2.2rem; margin-bottom: 10px; }
+button {
+  margin-top: 16px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 12px;
+  background: white;
+  color: #764ba2;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: .2s;
+}
+button:hover { transform: translateY(-2px); }`;
+const dhJs=`function sayHi() {
+  alert('Chào bạn! JavaScript đang chạy! 🎉');
+}
+console.log('Website đang hoạt động!');`;
+ 
+function initWs(){
+  if(document.getElementById('wHCode').value) return;
+  document.getElementById('wHCode').value=dhHtml;
+  document.getElementById('wCCode').value=dhCss;
+  document.getElementById('wJCode').value=dhJs;
+  swLn('h');swLn('c');swLn('j');runWs();
+}
+function swWs(t){
+  ['Html','Css','Js'].forEach(x=>{document.getElementById('w'+x+'Ed').classList.remove('active');document.getElementById('wTab'+x[0]).classList.remove('active');});
+  const m={html:'Html',css:'Css',js:'Js'};
+  document.getElementById('w'+m[t]+'Ed').classList.add('active');
+  document.getElementById('wTab'+({html:'H',css:'C',js:'J'}[t])).classList.add('active');
+}
+function swLn(t){
+  const m={h:'wHCode',c:'wCCode',j:'wJCode'};const m2={h:'wHLn',c:'wCLn',j:'wJLn'};
+  const ta=document.getElementById(m[t]),ln=document.getElementById(m2[t]);
+  if(!ta||!ln) return;
+  const lines=ta.value.split('\n').length;
+  ln.innerHTML=Array.from({length:Math.max(lines,1)},(_,i)=>i+1).join('<br>');
+}
+function swSc(t){
+  const m={h:'wHCode',c:'wCCode',j:'wJCode'};const m2={h:'wHLn',c:'wCLn',j:'wJLn'};
+  const ta=document.getElementById(m[t]),ln=document.getElementById(m2[t]);
+  if(ta&&ln) ln.scrollTop=ta.scrollTop;
+}
+function dbWs(){clearTimeout(wsDb);wsDb=setTimeout(()=>{runWs();document.getElementById('wsStatus').innerText='✅ Live';},400);document.getElementById('wsStatus').innerText='Đang cập nhật...';}
+function runWs(){
+  const h=document.getElementById('wHCode').value;
+  const c=document.getElementById('wCCode').value;
+  const j=document.getElementById('wJCode').value;
+  let merged=h.replace('</head>',`<style>${c}</style></head>`).replace('</body>',`<script>${j}<\/script></body>`);
+  merged=merged.replace(/<link[^>]*href=["']style\.css["'][^>]*>/gi,'').replace(/<script[^>]*src=["']script\.js["'][^>]*><\/script>/gi,'');
+  document.getElementById('wsFrame').srcdoc=merged;
+  document.getElementById('wsStatus').innerText='✅ Live';
+}
+function clearWs(){document.getElementById('wHCode').value='';document.getElementById('wCCode').value='';document.getElementById('wJCode').value='';swLn('h');swLn('c');swLn('j');runWs();}
+function loadWsTpl(){document.getElementById('wHCode').value=dhHtml;document.getElementById('wCCode').value=dhCss;document.getElementById('wJCode').value=dhJs;swLn('h');swLn('c');swLn('j');runWs();}
+function popWs(){const src=document.getElementById('wsFrame').srcdoc;const b=new Blob([src],{type:'text/html'});window.open(URL.createObjectURL(b),'_blank','width=900,height=700');}
+ 
+// ==================== VS STUDIO ====================
+let fs={},openT=[],actT=null,selP=null;
+const SK='phuc_v5_fs';
+function loadFs(){
+  try{const r=localStorage.getItem(SK);if(r) fs=JSON.parse(r);}catch(e){}
+  if(!Object.keys(fs).length){
+    fs={"index.html":{type:"file",content:dhHtml},"style.css":{type:"file",content:dhCss},"script.js":{type:"file",content:dhJs},"assets":{type:"folder",children:{}}};
+    saveFs();
+  }
+}
+function saveFs(){localStorage.setItem(SK,JSON.stringify(fs));}
+function getF(path){const parts=path.split('/').filter(Boolean);let cur=fs;for(let i=0;i<parts.length;i++){if(!cur[parts[i]])return null;if(i===parts.length-1)return cur[parts[i]];cur=cur[parts[i]].children;}return null;}
+function setF(path,obj){const parts=path.split('/').filter(Boolean);let cur=fs;for(let i=0;i<parts.length-1;i++){if(!cur[parts[i]])cur[parts[i]]={type:"folder",children:{}};cur=cur[parts[i]].children;}cur[parts[parts.length-1]]=obj;saveFs();}
+function delF(path){const parts=path.split('/').filter(Boolean);let cur=fs;for(let i=0;i<parts.length-1;i++) cur=cur[parts[i]].children;delete cur[parts[parts.length-1]];saveFs();openT=openT.filter(t=>t.path!==path);if(actT===path) actT=openT.length?openT[0].path:null;rTree();rTabs();rfPrev();}
+function rTree(){
+  const t=document.getElementById('fileTree');t.innerHTML='';
+  function walk(obj,indent,prefix){
+    Object.keys(obj).sort((a,b)=>{if(obj[a].type!==obj[b].type)return obj[a].type==='folder'?-1:1;return a.localeCompare(b);}).forEach(name=>{
+      const item=obj[name];const path=(prefix?prefix+'/':'')+name;
+      const d=document.createElement('div');d.className='trit'+(selP===path?' active':'')+(indent>0?' tind':'');
+      d.style.paddingLeft=(8+indent*14)+'px';d.innerHTML=(item.type==='folder'?'📁':'📄')+' '+name;
+      d.onclick=e=>{e.stopPropagation();selP=path;if(item.type==='file')openF(path);rTree();};t.appendChild(d);
+      if(item.type==='folder'&&item.children) walk(item.children,indent+1,path);
+    });
+  }
+  walk(fs,0,'');
+}
+function openF(path){if(!openT.find(t=>t.path===path)) openT.push({path,content:getF(path).content});actT=path;rTabs();loadEd();}
+function rTabs(){
+  const b=document.getElementById('ideTabs');b.innerHTML='';
+  openT.forEach(tab=>{
+    const d=document.createElement('div');d.className='it'+(tab.path===actT?' active':'');
+    d.innerHTML=`<span>${tab.path.split('/').pop()}</span><span class="cx" onclick="clT('${tab.path}',event)">×</span>`;
+    d.onclick=()=>{actT=tab.path;rTabs();loadEd();};b.appendChild(d);
+  });
+}
+function clT(p,e){e.stopPropagation();openT=openT.filter(t=>t.path!==p);if(actT===p) actT=openT.length?openT[0].path:null;rTabs();loadEd();}
+function loadEd(){
+  const ta=document.getElementById('ideEditor');
+  if(actT){const tab=openT.find(t=>t.path===actT);ta.value=tab?tab.content:'';ta.disabled=false;}
+  else{ta.value='// Chọn hoặc tạo file từ sidebar...';ta.disabled=true;}
+  updLn();
+}
+function onII(){
+  if(!actT) return;const tab=openT.find(t=>t.path===actT);if(!tab) return;
+  tab.content=document.getElementById('ideEditor').value;setF(actT,{type:'file',content:tab.content});updLn();
+  if(actT.endsWith('.html')||actT.endsWith('.css')||actT.endsWith('.js')) dbPrev();
+}
+function updLn(){
+  const ta=document.getElementById('ideEditor'),ln=document.getElementById('lineNumbers');
+  const lines=ta.value.split('\n').length;
+  ln.innerHTML=Array.from({length:Math.max(lines,1)},(_,i)=>i+1).join('<br>');
+}
+function sSync(){document.getElementById('lineNumbers').scrollTop=document.getElementById('ideEditor').scrollTop;}
+function hTab(e){if(e.key==='Tab'){e.preventDefault();const s=e.target.selectionStart,f=e.target.selectionEnd;e.target.value=e.target.value.substring(0,s)+'    '+e.target.value.substring(f);e.target.selectionStart=e.target.selectionEnd=s+4;onII();}}
+let pvDb;function dbPrev(){clearTimeout(pvDb);pvDb=setTimeout(rfPrev,350);}
+function rfPrev(){
+  let hf=openT.find(t=>t.path.endsWith('.html'));
+  if(!hf){if(fs['index.html']&&fs['index.html'].type==='file') hf={path:'index.html'};else{const k=Object.keys(fs).find(k=>k.endsWith('.html')&&fs[k].type==='file');if(k) hf={path:k};}}
+  if(!hf){const m='<div style="font-family:sans-serif;color:#94a3b8;padding:30px;text-align:center;">📄 Tạo file .html để xem Preview!</div>';document.getElementById('previewFrame').srcdoc=m;document.getElementById('phoneFrame').srcdoc=m;return;}
+  let html=getF(hf.path).content;
+  const bp=hf.path.includes('/')?hf.path.substring(0,hf.path.lastIndexOf('/')+1):'';
+  (html.match(/<link[^>]*href=["']([^"']+)["'][^>]*>/gi)||[]).forEach(tag=>{const m=tag.match(/href=["']([^"']+)["']/i);if(!m)return;const href=m[1];const res=href.startsWith('/')?href.slice(1):(bp+href);const f=getF(res);if(f&&f.type==='file') html=html.replace(tag,`<style>${f.content}</style>`);});
+  (html.match(/<script[^>]*src=["']([^"']+)["'][^>]*>(<\/script>)?/gi)||[]).forEach(tag=>{const m=tag.match(/src=["']([^"']+)["']/i);if(!m)return;const src=m[1];const res=src.startsWith('/')?src.slice(1):(bp+src);const f=getF(res);if(f&&f.type==='file') html=html.replace(tag,`<script>${f.content}<\/script>`);});
+  document.getElementById('previewFrame').srcdoc=html;
+  document.getElementById('phoneFrame').srcdoc=html;
+}
+function rfPhone(){rfPrev();}
+function popPrev(){const src=document.getElementById('previewFrame').srcdoc;const b=new Blob([src],{type:'text/html'});window.open(URL.createObjectURL(b),'_blank','width=900,height=700');}
+function newF(){const n=prompt('📄 Tên file mới:');if(!n)return;const p=selP&&getF(selP)?.type==='folder'?selP+'/'+n:n;if(getF(p)){alert('File đã tồn tại!');return;}setF(p,{type:'file',content:''});selP=p;rTree();openF(p);}
+function newFol(){const n=prompt('📁 Tên folder mới:');if(!n)return;const p=selP&&getF(selP)?.type==='folder'?selP+'/'+n:n;if(getF(p)){alert('Folder đã tồn tại!');return;}setF(p,{type:'folder',children:{}});selP=p;rTree();}
+function delIt(){if(!selP){alert('Chọn file/folder trước!');return;}if(!confirm('Xóa '+selP+'?'))return;delF(selP);selP=null;rTree();}
+function expZip(){
+  if(!window.JSZip){alert('JSZip chưa tải!');return;}
+  const zip=new JSZip();
+  function walk(obj,pre){Object.keys(obj).forEach(k=>{const item=obj[k];const p=(pre?pre+'/':'')+k;if(item.type==='file') zip.file(p,item.content);else if(item.children) walk(item.children,p);});}
+  walk(fs,'');
+  zip.generateAsync({type:"blob"}).then(c=>{const a=document.createElement('a');a.href=URL.createObjectURL(c);a.download="phuc-studio.zip";a.click();});
+}
+function hTerm(e){
+  if(e.key!=='Enter') return;const inp=e.target,cmd=inp.value.trim();inp.value='';
+  const term=document.getElementById('ideTerminal');
+  const ln=document.createElement('div');ln.className='tl';ln.innerHTML=`<span class="tcmd">➜ ${escH(cmd)}</span>`;term.insertBefore(ln,term.lastElementChild);
+  function addTL(text,cls){const l=document.createElement('div');l.className='tl '+(cls||'');l.innerText=text;term.insertBefore(l,term.lastElementChild);}
+  if(cmd==='help') addTL('Lệnh: help, clear, ls, cat <file>, run, touch <file>','tsuc');
+  else if(cmd==='clear'){Array.from(term.querySelectorAll('.tl')).forEach(l=>l.remove());}
+  else if(cmd==='ls') addTL(Object.keys(fs).join('   '),'');
+  else if(cmd.startsWith('cat ')){const f=getF(cmd.slice(4));if(f&&f.type==='file') addTL(f.content,'');else addTL('Không tìm thấy!','terr');}
+  else if(cmd==='run'){rfPrev();addTL('✅ Đã refresh Preview.','tsuc');}
+  else if(cmd.startsWith('touch ')){const p=cmd.slice(6);if(p){setF(p,{type:'file',content:''});rTree();addTL('Đã tạo: '+p,'tsuc');}}
+  else if(cmd) addTL('Lệnh không xác định. Gõ help.','terr');
+  term.scrollTop=term.scrollHeight;
+}
+ 
+// ==================== EXCEL ====================
+let exData=[[[]]]; // [sheet][row][col]
+let exSheet=0,exRows=20,exCols=20,selCell={r:0,c:0};
+function initExcel(){
+  if(exData[0].length>1) return; // already init
+  for(let s=0;s<3;s++){exData[s]=[];for(let r=0;r<exRows;r++){exData[s][r]=[];for(let c=0;c<exCols;c++) exData[s][r][c]='';}}
+  exData[0][0][0]='Họ tên';exData[0][0][1]='Tuổi';exData[0][0][2]='Điểm';exData[0][0][3]='Xếp loại';
+  exData[0][1][0]='Nguyễn Văn A';exData[0][1][1]='20';exData[0][1][2]='8.5';exData[0][1][3]='Giỏi';
+  exData[0][2][0]='Trần Thị B';exData[0][2][1]='21';exData[0][2][2]='7.0';exData[0][2][3]='Khá';
+  exData[0][3][0]='Lê Văn C';exData[0][3][1]='19';exData[0][3][2]='9.2';exData[0][3][3]='Xuất sắc';
+  renderExcel();
+}
+function renderExcel(){
+  const cols='ABCDEFGHIJKLMNOPQRST';
+  const wrap=document.getElementById('excelWrap');
+  let h=`<table class="ext"><tr><th style="min-width:38px"></th>`;
+  for(let c=0;c<exCols;c++) h+=`<th>${cols[c]}</th>`;h+='</tr>';
+  for(let r=0;r<exRows;r++){
+    h+=`<tr><td class="hc">${r+1}</td>`;
+    for(let c=0;c<exCols;c++){
+      const v=exData[exSheet][r]?exData[exSheet][r][c]||'':'';
+      h+=`<td onclick="selEx(${r},${c})" style="${r===selCell.r&&c===selCell.c?'outline:2px solid var(--cy);background:rgba(6,182,212,.1)':''}"><input type="text" value="${v.replace(/"/g,'&quot;')}" oninput="cellEdit(${r},${c},this.value)" onfocus="selEx(${r},${c})"></td>`;
+    }
+    h+='</tr>';
+  }
+  h+='</table>';wrap.innerHTML=h;
+  updateFBar();
+}
+function selEx(r,c){selCell={r,c};const cols='ABCDEFGHIJKLMNOPQRST';document.getElementById('cellRef').innerText=cols[c]+(r+1);document.getElementById('formulaBar').value=exData[exSheet][r]?exData[exSheet][r][c]||'':'';renderExcel();}
+function cellEdit(r,c,v){if(!exData[exSheet][r]) exData[exSheet][r]=[];exData[exSheet][r][c]=v;document.getElementById('formulaBar').value=v;}
+function onFormula(){const v=document.getElementById('formulaBar').value;const{r,c}=selCell;if(!exData[exSheet][r]) exData[exSheet][r]=[];exData[exSheet][r][c]=v;renderExcel();}
+function updateFBar(){const{r,c}=selCell;document.getElementById('formulaBar').value=exData[exSheet][r]?exData[exSheet][r][c]||'':""}
+function addRow(){exRows++;for(let s=0;s<3;s++){exData[s].push(Array(exCols).fill(''));}renderExcel();}
+function addCol(){exCols=Math.min(exCols+1,20);for(let s=0;s<3;s++) exData[s].forEach(r=>r.push(''));renderExcel();}
+function clearCell(){const{r,c}=selCell;if(!exData[exSheet][r]) return;exData[exSheet][r][c]='';renderExcel();}
+function switchSheet(s){exSheet=parseInt(s);renderExcel();}
+function sumCol(){
+  const{c}=selCell;let sum=0,cnt=0;
+  exData[exSheet].forEach(r=>{const v=parseFloat(r[c]);if(!isNaN(v)){sum+=v;cnt++;}});
+  if(cnt>0) alert(`Tổng cột: ${sum}\nTrung bình: ${(sum/cnt).toFixed(2)}\nSố ô: ${cnt}`);
+  else alert('Không có dữ liệu số trong cột này!');
+}
+function exportExcelCsv(){
+  const rows=exData[exSheet].map(r=>r.map(c=>`"${c}"`).join(','));
+  const csv=rows.join('\n');
+  const b=new Blob([csv],{type:'text/csv'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='sheet'+(exSheet+1)+'.csv';a.click();
+}
+ 
+// ==================== CODEBLOCKS ====================
+const cbTpls={
+  hello:{c:`#include <stdio.h>
+int main() {
+    printf("Hello World!\\n");
+    printf("Chào mừng đến CodeBlocks Online\\n");
+    return 0;
+}`,cpp:`#include <iostream>
+using namespace std;
+int main() {
+    cout << "Hello World!" << endl;
+    cout << "Chào mừng đến CodeBlocks Online" << endl;
+    return 0;
+}`},
+  calc:{c:`#include <stdio.h>
+int main() {
+    float a, b;
+    char op;
+    printf("Nhập: a op b (ví dụ: 5 + 3): ");
+    // Demo: tính với giá trị cố định
+    a = 15.0; b = 4.0; op = '+';
+    float result;
+    if(op=='+') result=a+b;
+    else if(op=='-') result=a-b;
+    else if(op=='*') result=a*b;
+    else if(op=='/') result=b!=0?a/b:0;
+    printf("%.1f %c %.1f = %.2f\\n", a, op, b, result);
+    return 0;
+}`,cpp:`#include <iostream>
+using namespace std;
+int main() {
+    float a = 15.0, b = 4.0;
+    cout << a << " + " << b << " = " << a+b << endl;
+    cout << a << " - " << b << " = " << a-b << endl;
+    cout << a << " * " << b << " = " << a*b << endl;
+    cout << a << " / " << b << " = " << a/b << endl;
+    return 0;
+}`},
+  array:{c:`#include <stdio.h>
+int main() {
+    int a[] = {5, 2, 8, 1, 9, 3, 7};
+    int n = 7, sum = 0;
+    for(int i = 0; i < n; i++) {
+        sum += a[i];
+        printf("a[%d] = %d\\n", i, a[i]);
+    }
+    printf("Tổng: %d\\n", sum);
+    printf("TB: %.2f\\n", (float)sum/n);
+    return 0;
+}`,cpp:`#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main() {
+    vector<int> v = {5, 2, 8, 1, 9, 3, 7};
+    sort(v.begin(), v.end());
+    cout << "Sau khi sắp xếp: ";
+    for(int x : v) cout << x << " ";
+    cout << endl;
+    return 0;
+}`},
+  struct:{c:`#include <stdio.h>
+#include <string.h>
+struct SinhVien {
+    char ten[50];
+    int tuoi;
+    float diem;
+};
+int main() {
+    struct SinhVien sv;
+    strcpy(sv.ten, "Nguyen Van A");
+    sv.tuoi = 20;
+    sv.diem = 8.5;
+    printf("Ten: %s\\n", sv.ten);
+    printf("Tuoi: %d\\n", sv.tuoi);
+    printf("Diem: %.1f\\n", sv.diem);
+    if(sv.diem >= 9) printf("Xep loai: Xuat sac\\n");
+    else if(sv.diem >= 7) printf("Xep loai: Kha\\n");
+    else printf("Xep loai: TB\\n");
+    return 0;
+}`,cpp:`#include <iostream>
+#include <string>
+using namespace std;
+struct SinhVien {
+    string ten;
+    int tuoi;
+    float diem;
+    void inThongTin() {
+        cout << "Ten: " << ten << endl;
+        cout << "Tuoi: " << tuoi << endl;
+        cout << "Diem: " << diem << endl;
+    }
+};
+int main() {
+    SinhVien sv = {"Nguyen Van A", 20, 8.5};
+    sv.inThongTin();
+    return 0;
+}`},
+  linked:{c:`#include <stdio.h>
+#include <stdlib.h>
+struct Node {
+    int data;
+    struct Node* next;
+};
+int main() {
+    struct Node* head = NULL;
+    // Tạo 3 node
+    for(int i = 1; i <= 3; i++) {
+        struct Node* n = (struct Node*)malloc(sizeof(struct Node));
+        n->data = i * 10;
+        n->next = head;
+        head = n;
+    }
+    // In danh sách
+    struct Node* cur = head;
+    while(cur != NULL) {
+        printf("%d -> ", cur->data);
+        cur = cur->next;
+    }
+    printf("NULL\\n");
+    return 0;
+}`,cpp:`#include <iostream>
+#include <list>
+using namespace std;
+int main() {
+    list<int> lst = {10, 20, 30, 40, 50};
+    cout << "Danh sach: ";
+    for(int x : lst) cout << x << " ";
+    cout << endl;
+    lst.push_front(5);
+    lst.push_back(55);
+    cout << "Sau them: ";
+    for(int x : lst) cout << x << " ";
+    cout << endl;
+    return 0;
+}`},
+  sort:{c:`#include <stdio.h>
+void bubbleSort(int a[], int n) {
+    for(int i = 0; i < n-1; i++)
+        for(int j = 0; j < n-i-1; j++)
+            if(a[j] > a[j+1]) {
+                int t = a[j]; a[j] = a[j+1]; a[j+1] = t;
+            }
+}
+int main() {
+    int a[] = {64, 34, 25, 12, 22, 11, 90};
+    int n = 7;
+    printf("Truoc: ");
+    for(int i=0;i<n;i++) printf("%d ", a[i]);
+    bubbleSort(a, n);
+    printf("\\nSau : ");
+    for(int i=0;i<n;i++) printf("%d ", a[i]);
+    printf("\\n");
+    return 0;
+}`,cpp:`#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+int main() {
+    vector<int> v = {64, 34, 25, 12, 22, 11, 90};
+    cout << "Trước: ";
+    for(int x:v) cout<<x<<" ";
+    sort(v.begin(), v.end());
+    cout << "\\nSau  : ";
+    for(int x:v) cout<<x<<" ";
+    cout << endl;
+    // Giảm dần
+    sort(v.begin(), v.end(), greater<int>());
+    cout << "Giảm : ";
+    for(int x:v) cout<<x<<" ";
+    cout << endl;
+    return 0;
+}`},
+  oop:{c:`// C không có OOP, dùng struct + function thay thế
+#include <stdio.h>
+#include <math.h>
+typedef struct {
+    float x, y;
+} Diem;
+float khoangCach(Diem a, Diem b) {
+    float dx = a.x - b.x, dy = a.y - b.y;
+    return sqrt(dx*dx + dy*dy);
+}
+int main() {
+    Diem A = {0, 0}, B = {3, 4};
+    printf("A(%.0f,%.0f) B(%.0f,%.0f)\\n", A.x, A.y, B.x, B.y);
+    printf("Khoang cach: %.2f\\n", khoangCach(A, B));
+    return 0;
+}`,cpp:`#include <iostream>
+#include <cmath>
+using namespace std;
+class HinhTron {
+private:
+    float r;
+public:
+    HinhTron(float radius) : r(radius) {}
+    float dienTich() { return 3.14159 * r * r; }
+    float chuVi() { return 2 * 3.14159 * r; }
+    void inThongTin() {
+        cout << "Bán kính: " << r << endl;
+        cout << "Diện tích: " << dienTich() << endl;
+        cout << "Chu vi: " << chuVi() << endl;
+    }
+};
+int main() {
+    HinhTron h(5.0);
+    h.inThongTin();
+    return 0;
+}`},
+  math:{c:`#include <stdio.h>
+#include <math.h>
+int main() {
+    // Số nguyên tố
+    printf("So nguyen to tu 1-30: ");
+    for(int n=2;n<=30;n++){
+        int ok=1;
+        for(int i=2;i*i<=n;i++) if(n%i==0){ok=0;break;}
+        if(ok) printf("%d ",n);
+    }
+    printf("\\n");
+    // Fibonacci
+    printf("Fibonacci 10 so: ");
+    int a=0,b=1;
+    for(int i=0;i<10;i++){printf("%d ",a);int t=a+b;a=b;b=t;}
+    printf("\\n");
+    // Giai thua
+    long long f=1;
+    for(int i=1;i<=10;i++) f*=i;
+    printf("10! = %lld\\n", f);
+    return 0;
+}`,cpp:`#include <iostream>
+#include <cmath>
+using namespace std;
+// Tính số nguyên tố
+bool isPrime(int n) {
+    if(n<2) return false;
+    for(int i=2;i<=sqrt(n);i++) if(n%i==0) return false;
+    return true;
+}
+// UCLN - GCD
+int gcd(int a, int b) { return b==0?a:gcd(b,a%b); }
+int main() {
+    cout << "Số nguyên tố 1-50: ";
+    for(int i=1;i<=50;i++) if(isPrime(i)) cout<<i<<" ";
+    cout << endl;
+    cout << "GCD(24,36) = " << gcd(24,36) << endl;
+    cout << "sqrt(144) = " << sqrt(144) << endl;
+    return 0;
+}`},
+};
+let cbCode='',cbLang2='c';
+function initCb(){
+  if(document.getElementById('cbEditor').value) return;
+  cbLangChange();
+  cbTplLoad2('hello');
+}
+function cbLangChange(){
+  cbLang2=document.getElementById('cbLang').value;
+  const n=cbLang2==='c'?'main.c':'main.cpp';
+  document.querySelector('#cbTabs .cbt').innerText='📄 '+n;
+  document.querySelector('#cbFileList .cbfi').innerText='📄 '+n;
+  document.querySelector('#cbFileList .cbfi').id='cfi-main';
+}
+function cbTplLoad(){const v=document.getElementById('cbTpl').value;if(v) cbTplLoad2(v);}
+function cbTplLoad2(name){
+  const tpl=cbTpls[name];if(!tpl) return;
+  const code=cbLang2==='cpp'?tpl.cpp:tpl.c;
+  document.getElementById('cbEditor').value=code;cbOnInput();
+  document.getElementById('cbTpl').value='';
+}
+function cbOnInput(){
+  const ta=document.getElementById('cbEditor'),ln=document.getElementById('cbLineNums');
+  const lines=ta.value.split('\n').length;
+  ln.innerHTML=Array.from({length:Math.max(lines,1)},(_,i)=>i+1).join('<br>');
+  cbCode=ta.value;
+}
+function cbHTab(e){if(e.key==='Tab'){e.preventDefault();const s=e.target.selectionStart,f=e.target.selectionEnd;e.target.value=e.target.value.substring(0,s)+'    '+e.target.value.substring(f);e.target.selectionStart=e.target.selectionEnd=s+4;cbOnInput();}}
+function cbNewFile(){document.getElementById('cbEditor').value='';cbOnInput();}
+function cbSave(){const b=new Blob([document.getElementById('cbEditor').value],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=cbLang2==='cpp'?'main.cpp':'main.c';a.click();}
+function cbStop(){addCbOut('⏹ Đã dừng.','');}
+function addCbOut(text,cls){const d=document.getElementById('cbOut');const l=document.createElement('div');l.className='cbol '+(cls||'');l.innerText=text;d.appendChild(l);d.scrollTop=d.scrollHeight;}
+function cbClearOut(){document.getElementById('cbOut').innerHTML='';}
+function cbBuild(){
+  cbClearOut();
+  const code=document.getElementById('cbEditor').value;
+  if(!code.trim()){addCbOut('❌ Không có code để build!','cber');return;}
+  addCbOut(`[${cbLang2==='cpp'?'G++':'GCC'}] Compiling...`,'');
+  // Static analysis
+  const issues=[];
+  if(!code.includes('int main')) issues.push('• Thiếu int main()');
+  if(!code.includes('return 0')) issues.push('• Nên có return 0;');
+  if(cbLang2==='c'&&!code.includes('#include')) issues.push('• Thiếu #include');
+  if(cbLang2==='cpp'&&!code.includes('iostream')&&!code.includes('stdio')) issues.push('• Thiếu #include header');
+  if(issues.length>0){
+    addCbOut('⚠️ Cảnh báo:','cber');
+    issues.forEach(i=>addCbOut(i,'cber'));
+  }
+  setTimeout(()=>{
+    if(issues.length===0) addCbOut('✅ Build thành công! 0 lỗi 0 cảnh báo.','cbok');
+    else addCbOut('⚠️ Build hoàn thành với cảnh báo. Kiểm tra code!','');
+  },600);
+}
+function cbRun(){
+  cbClearOut();
+  const code=document.getElementById('cbEditor').value;
+  if(!code.trim()){addCbOut('❌ Không có code để chạy!','cber');return;}
+  addCbOut('▶ Đang chạy...','');
+  // Simulate output by extracting printf/cout strings
+  setTimeout(()=>{
+    addCbOut('─────────────────────────','');
+    const outputs=[];
+    // Extract printf strings
+    const pf=code.match(/printf\s*\(\s*"([^"]+)"/g)||[];
+    pf.forEach(m=>{const s=m.match(/printf\s*\(\s*"([^"]+)"/);if(s) outputs.push(s[1].replace(/\\n/g,'\n').replace(/%d|%f|%s|%c|%ld|%lld|%.?\d*f/g,'...'));});
+    // Extract cout strings
+    const co=code.match(/cout\s*<<\s*"([^"]+)"/g)||[];
+    co.forEach(m=>{const s=m.match(/cout\s*<<\s*"([^"]+)"/);if(s) outputs.push(s[1].replace(/\\n/g,'\n'));});
+    if(outputs.length>0){
+      outputs.forEach(o=>{const lines=o.split('\n');lines.forEach(l=>{if(l.trim()) addCbOut(l,'');});});
+    } else{
+      addCbOut('[Mô phỏng] Để chạy C/C++ thực sự:','');
+      addCbOut('1. Cài Dev-C++ hoặc VS Code','');
+      addCbOut('2. Dán code vào và nhấn F9/Run','');
+      addCbOut('3. Hoặc dùng OnlineGDB.com','');
+    }
+    addCbOut('─────────────────────────','');
+    addCbOut(`[Process returned 0 (0x0)]  ✅`,'cbok');
+  },800);
+}
+function cbBuildRun(){cbBuild();setTimeout(cbRun,700);}
+ 
+// ==================== AI CHAT ====================
+let chatMs=[],typRow=null;
+const SYS="Bạn là trợ lý AI thông minh của Phúc Studio tên PhúcBot-AI. Trả lời bằng tiếng Việt, chi tiết, có ví dụ. Hỗ trợ mọi chủ đề: lập trình, toán học, khoa học, cuộc sống, kinh doanh... Luôn thân thiện và hữu ích.";
+function saveKey(){
+  const k=document.getElementById('aiKey').value.trim();
+  const p=document.getElementById('aiProv').value;
+  if(k){localStorage.setItem('phuc_ai_key',k);localStorage.setItem('phuc_ai_prov',p);alert('✅ Đã lưu API Key!');}
+  else alert('⚠️ Vui lòng nhập key trước!');
+}
+function loadKey(){
+  const k=localStorage.getItem('phuc_ai_key');
+  const p=localStorage.getItem('phuc_ai_prov');
+  if(k) document.getElementById('aiKey').value=k;
+  if(p) document.getElementById('aiProv').value=p;
+}
+function clrChat(){
+  chatMs=[];
+  document.getElementById('chatHistory').innerHTML=`<div class="echt" id="emptyChat"><div style="font-size:2.8rem;margin-bottom:12px">🤖</div><div style="font-size:1.1rem;color:#fff;font-weight:700;margin-bottom:8px">Xin chào! Tôi là PhúcBot-AI</div><div style="max-width:460px;margin:0 auto;line-height:1.7;color:var(--td)">Nhập API Key → Lưu Key → Gõ câu hỏi → Gửi!</div></div>`;
+}
+function appChat(role,text,isHtml=false){
+  const box=document.getElementById('chatHistory');
+  const e=box.querySelector('.echt');if(e) e.remove();
+  const row=document.createElement('div');row.className='chr';
+  const av=document.createElement('div');av.className='cha '+(role==='user'?'user':'ai');av.innerText=role==='user'?'🧑':'🤖';
+  const bub=document.createElement('div');bub.className='chb '+(role==='user'?'user':'ai');
+  if(isHtml) bub.innerHTML=text;
+  else{let s=escH(text);s=s.replace(/\*\*(.+?)\*\*/g,'<strong style="color:#fff">$1</strong>');s=s.replace(/`([^`]+)`/g,'<code>$1</code>');s=s.replace(/```([\s\S]*?)```/g,'<pre>$1</pre>');s=s.replace(/\n/g,'<br>');bub.innerHTML=s;}
+  row.appendChild(av);row.appendChild(bub);box.appendChild(row);box.scrollTop=box.scrollHeight;
+}
+function showTyping(){
+  const box=document.getElementById('chatHistory');
+  typRow=document.createElement('div');typRow.className='chr';
+  typRow.innerHTML=`<div class="cha ai">🤖</div><div class="chb ai"><span class="pulse">🤖 AI đang suy nghĩ...</span></div>`;
+  box.appendChild(typRow);box.scrollTop=box.scrollHeight;
+}
+function hideTyping(){if(typRow){typRow.remove();typRow=null;}}
+async function sendMsg(){
+  const inp=document.getElementById('chatInput');
+  const msg=inp.value.trim();if(!msg) return;
+  const key=document.getElementById('aiKey').value.trim();
+  const prov=document.getElementById('aiProv').value;
+  if(!key){
+    alert('Vui lòng nhập và lưu API Key trước!\n\n📌 Gemini miễn phí: aistudio.google.com\n📌 OpenAI: platform.openai.com');
+    return;
+  }
+  inp.value='';
+  chatMs.push({role:'user',text:msg});if(chatMs.length>20) chatMs=chatMs.slice(-20);
+  appChat('user',msg);showTyping();
+  document.getElementById('sendBtn').disabled=true;
+  try{
+    let reply='';
+    if(prov==='gemini'){
+      const res=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key}`,{
+        method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          systemInstruction:{parts:[{text:SYS}]},
+          contents:chatMs.map(m=>({role:m.role==='ai'?'model':'user',parts:[{text:m.text}]})),
+          generationConfig:{temperature:0.9,maxOutputTokens:2048}
+        })
+      });
+      const data=await res.json();
+      if(!res.ok) throw new Error(data.error?.message||'Lỗi Gemini API');
+      reply=data.candidates?.[0]?.content?.parts?.[0]?.text||'Không nhận được phản hồi.';
+    } else {
+      const msgs=[{role:'system',content:SYS},...chatMs.map(m=>({role:m.role==='ai'?'assistant':'user',content:m.text}))];
+      const res=await fetch('https://api.openai.com/v1/chat/completions',{
+        method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},
+        body:JSON.stringify({model:'gpt-3.5-turbo',messages:msgs,temperature:0.9,max_tokens:2048})
+      });
+      const data=await res.json();
+      if(!res.ok) throw new Error(data.error?.message||'Lỗi OpenAI API');
+      reply=data.choices?.[0]?.message?.content||'Không nhận được phản hồi.';
+    }
+    hideTyping();chatMs.push({role:'ai',text:reply});if(chatMs.length>20) chatMs=chatMs.slice(-20);appChat('ai',reply);
+  } catch(err){
+    hideTyping();
+    let errMsg=err.message;
+    let hint='';
+    if(errMsg.includes('API_KEY_INVALID')||errMsg.includes('invalid')||errMsg.includes('Invalid')) hint='<br><br>💡 <strong>Kiểm tra lại API Key:</strong> Key có thể sai hoặc hết hạn. Lấy key mới tại <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:var(--cy)">aistudio.google.com</a>';
+    else if(errMsg.includes('quota')||errMsg.includes('QUOTA')) hint='<br><br>💡 <strong>Hết quota:</strong> Key đã dùng hết giới hạn miễn phí. Thử key khác.';
+    else if(errMsg.includes('CORS')||errMsg.includes('network')||errMsg.includes('fetch')) hint='<br><br>💡 <strong>Lỗi mạng:</strong> Kiểm tra kết nối internet.';
+    appChat('ai',`❌ <strong>Lỗi:</strong> ${escH(errMsg)}${hint}`,true);
+  }
+  document.getElementById('sendBtn').disabled=false;
+}
+ 
+// ==================== MODAL ====================
+function openModal(){document.getElementById('aiModal').classList.add('open');}
+function closeModal(){document.getElementById('aiModal').classList.remove('open');}
+function swMT(id,e){
+  document.querySelectorAll('.mt').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.ms').forEach(s=>s.classList.remove('active'));
+  e.target.classList.add('active');document.getElementById('tab-'+id).classList.add('active');
+}
+ 
+// ==================== INIT ====================
+rv('all');onLC();loadFs();rTree();
+if(fs['index.html']) openF('index.html');else if(Object.keys(fs).length) openF(Object.keys(fs)[0]);
+initMemory();loadKey();
+setTimeout(()=>{initBr();bkDraw();},100);
+// Load Skulpt from correct CDN
+const sk1=document.createElement('script');sk1.src='https://cdn.jsdelivr.net/npm/skulpt@1.0.0/dist/skulkt.min.js';sk1.onerror=()=>{const sk2=document.createElement('script');sk2.src='https://skulpt.org/static/skulkt.min.js';document.head.appendChild(sk2);};document.head.appendChild(sk1);
+const sk2=document.createElement('script');sk2.src='https://cdn.jsdelivr.net/npm/skulkt@1.0.0/dist/skulkt-stdlib.js';document.head.appendChild(sk2);
+</script>
+</body>
+</html>
